@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğa Yalçın | Professional Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Iconify Script for Skill Icons -->
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --dark-bg: #2c243b;
+            --glass-bg: rgba(50, 42, 68, 0.6); 
+            --border-color: rgba(255, 255, 255, 0.15);
+            --text-primary: #f7f2ff;
+            --text-secondary: #e0d8f0;
+            --accent-gradient: linear-gradient(90deg, #d3a1a3, #e1b382);
+            --accent-color-1: #d3a1a3;
+            --accent-color-2: #e1b382;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            --shadow-glow: 0 0 20px rgba(211, 161, 163, 0.3);
+        }
+
+       /* --- BASE STYLES & RESET --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { 
+            scroll-behavior: smooth; 
+            background-color: var(--dark-bg);
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: transparent;
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+            font-weight: 400;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 4rem 0; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; }
+
+        h2 {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        h3 { font-size: 1.75rem; color: var(--text-primary); margin-bottom: 1rem; }
+        h4 { font-size: 1.5rem; }
+        a { text-decoration: none; color: var(--accent-color-1); transition: color 0.3s ease; }
+        a:hover { color: var(--accent-color-2); }
+
+        /* --- NEW: Keyword Highlighting --- */
+        .highlight-keyword {
+            color: var(--accent-color-2); /* Soft gold for a warm highlight */
+            font-weight: 500;
+        }
+
+        /* --- GLOBAL AURORA BACKGROUND --- */
+        .aurora-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(45deg, hsla(358, 36%, 73%, 0.2), hsla(33, 56%, 70%, 0.2), hsla(275, 40%, 60%, 0.15));
+            filter: blur(80px);
+            transform-origin: center;
+            animation: move-aurora 25s infinite linear alternate;
+            z-index: -1;
+            pointer-events: none; 
+        }
+
+        @keyframes move-aurora {
+            from { transform: rotate(0deg) scale(1.5); }
+            to { transform: rotate(360deg) scale(1.5); }
+        }
+
+        /* --- ANIMATION --- */
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.is-visible { opacity: 1; transform: translateY(0); }
+        @keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+
+        /* --- HEADER --- */
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 0; z-index: 100; background: rgba(44, 36, 59, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); }
+        .main-header .container { display: flex; justify-content: center; align-items: center; position: relative; }
+        .main-nav ul { display: flex; list-style: none; gap: 2rem; }
+        .main-nav a { font-weight: 500; font-family: var(--font-body); color: var(--text-secondary); }
+        .main-nav a:hover, .main-nav a.active { color: var(--text-primary); }
+
+        /* --- LANGUAGE SWITCHER --- */
+        .language-switcher {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            gap: 1rem;
+        }
+
+        .language-switcher a {
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .language-switcher a:hover {
+            color: var(--text-primary);
+            background-color: var(--glass-bg);
+        }
+
+        .language-switcher a.active {
+            color: var(--dark-bg);
+            font-weight: 700;
+            cursor: default;
+            background-color: var(--accent-color-1);
+        }
+
+        /* --- HERO --- */
+        #hero { display: flex; align-items: center; justify-content: center; min-height: 50vh; text-align: center; padding-top: 6rem; padding-bottom: 2rem; }
+        #hero h1 { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 1.5rem; background: var(--accent-gradient); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradient-animation 5s ease infinite; }
+        #hero .tagline { font-size: 1.2rem; max-width: 600px; margin: 0 auto 1.5rem auto; color: var(--text-secondary); font-weight: 400; }
+
+        /* --- BUTTON --- */
+        .btn { display: inline-block; padding: 14px 32px; background: var(--accent-gradient); color: #fff; border-radius: 30px; font-family: var(--font-body); font-weight: 500; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(211, 161, 163, 0.0); border: 0; }
+        .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); }
+
+        /* --- ABOUT ME SECTION (UPDATED) --- */
+        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center; }
+        .about-content img { 
+            max-width: 100%; 
+            border-radius: 20px; /* Changed from circle to rounded rectangle */
+            box-shadow: var(--shadow-glow); 
+            /* border removed for cleaner look */
+        }
+        .about-text p { margin-bottom: 1rem; color: var(--text-secondary); }
+        .about-text .btn { margin-top: 1rem; }
+        
+        /* --- TIMELINE --- */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 1px; background: var(--border-color); top: 0; bottom: 0; left: 50%; margin-left: -0.5px; }
+        .timeline-item { padding: 1rem 3rem; position: relative; width: 50%; perspective: 1000px; }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-content { 
+            --x: 50%; 
+            --y: 50%; 
+            position: relative; 
+            padding: 1.5rem; 
+            border-radius: 20px; 
+            background: rgba(44, 36, 59, 0.75); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+            transform-style: preserve-3d; 
+            transition: transform 0.1s ease-out; 
+            border: 1px solid var(--border-color);
+        }
+        .timeline-content::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 20px; background: radial-gradient(circle 200px at var(--x) var(--y), rgba(211, 161, 163, 0.2), transparent); opacity: 0; transition: opacity 0.4s ease-out; }
+        .timeline-item:hover .timeline-content::before { opacity: 1; }
+        .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: var(--dark-bg); border: 3px solid var(--accent-color-1); top: 30px; border-radius: 50%; z-index: 1; transition: transform 0.3s ease; }
+        .timeline-item:nth-child(even)::after { left: -8px; }
+        .timeline-item:hover::after { transform: scale(1.3); box-shadow: var(--shadow-glow); background: var(--accent-gradient); }
+        .timeline-content .date { font-size: 0.9rem; font-weight: 500; color: var(--accent-color-1); margin-bottom: 0.5rem; }
+        .timeline-content ul { 
+            list-style-position: inside; 
+            padding-left: 0; 
+            color: var(--text-primary); 
+        }
+
+        /* --- PROJECTS SECTION --- */
+        .project-spotlight { display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+        #projects .intro-text { color: var(--text-secondary); font-size: 1.1rem; max-width: 60ch; }
+        .featured-project-content { margin-top: 2rem; background: var(--glass-bg); padding: 1.5rem; border-radius: 20px; border: 1px solid var(--border-color); }
+        .featured-project-content h4 { font-family: var(--font-heading); color: var(--accent-color-1); margin-bottom: 0.75rem; }
+        .spotlight-image-container { perspective: 1000px; }
+        .spotlight-image { max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); border: 1px solid var(--border-color); transition: transform 0.1s ease-out; }
+        .more-projects-title { text-align: center; font-size: 2.5rem; color: var(--text-primary); margin-bottom: 2.5rem; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .project-card { display: flex; flex-direction: column; background: var(--glass-bg); border: 1px solid var(--border-color); border-radius: 20px; backdrop-filter: blur(5px); transition: all 0.4s ease; overflow: hidden; }
+        .project-card:hover { transform: translateY(-10px); border-color: var(--accent-color-1); box-shadow: var(--shadow-glow); }
+        .project-card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+        .project-card-content p { flex-grow: 1; color: var(--text-secondary); }
+        .project-links { margin-top: 1rem; display: flex; gap: 1rem; }
+
+        /* --- SKILLS SECTION --- */
+        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+        .skill-category h3 { text-align: center; font-size: 2rem; }
+        .skill-category p { text-align: center; color: var(--text-secondary); margin-bottom: 1rem; }
+        .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+        .skill-item { display: flex; align-items: center; gap: 0.75rem; background: var(--glass-bg); border: 1px solid var(--border-color); padding: 0.75rem 1.5rem; border-radius: 25px; transition: all 0.3s ease; }
+        .skill-item:hover { color: var(--dark-bg); background: var(--accent-gradient); border-color: transparent; transform: translateY(-3px); }
+        .skill-item .iconify { font-size: 2rem; }
+
+        /* --- CONTACT --- */
+        #contact .container { max-width: 700px; text-align: center; }
+        #contact p { font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem; }
+
+        /* --- FOOTER --- */
+        .main-footer { padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color); }
+        .social-links { margin-bottom: 1rem; }
+        .social-links a { margin: 0 1rem; }
+        .social-links svg { width: 24px; height: 24px; fill: var(--text-secondary); transition: all 0.3s ease; }
+        .social-links a:hover svg { fill: var(--accent-color-1); transform: scale(1.2); }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .language-switcher { position: static; transform: none; margin-top: 1rem; justify-content: center; }
+            .main-header .container { flex-direction: column; }
+        }
+        @media (max-width: 768px) {
+            h2 { font-size: 2.5rem; }
+            .about-content { grid-template-columns: 1fr; text-align: center; }
+            .about-content img { max-width: 200px; margin: 0 auto 2rem auto; }
+            .timeline::after { left: 15px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 1rem; }
+            .timeline-item:nth-child(even) { left: 0%; }
+            .timeline-item::after { left: 7px; }
+            .skills-container { grid-template-columns: 1fr; }
+            .project-spotlight { grid-template-columns: 1fr; text-align: center; }
+            .spotlight-image-container { order: -1; max-width: 250px; margin: 0 auto 2rem auto; }
+            #projects .intro-text { margin: 0 auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora-background"></div>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#about" data-key="navAbout">About</a></li>
+                    <li><a href="#experience" data-key="navExperience">Experience</a></li>
+                    <li><a href="#projects" data-key="navProjects">Projects</a></li>
+                    <li><a href="#skills" data-key="navSkills">Skills</a></li>
+                    <li><a href="#contact" data-key="navContact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <a href="#" data-lang="en" class="active">EN</a>
+                <a href="#" data-lang="tr">TR</a>
+                <a href="#" data-lang="fr">FR</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container fade-in">
+                <h1 data-key="heroName">Doğa Yalçın</h1>
+                <p class="tagline" data-key="heroTagline">Software Developer 🤖 AI Enthusiast 🔥 Always learning 📊</p>
+                <a href="#projects" class="btn" data-key="heroButton">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="fade-in">
+            <div class="container">
+                <h2 data-key="aboutTitle">About Me</h2>
+                <div class="about-content">
+                    <img src="images/me.jpg" alt="Photo of Doga Yalcin">
+                    <div class="about-text">
+                        <h3 data-key="aboutGreeting">Hi, I'm Doğa</h3>
+                        <p data-key="aboutP1">I'm a curious and passionate junior software developer and an enthusiastic explorer in data science and artificial intelligence.</p>
+                        <p data-key="aboutP2">Always learning and evolving, I combine software development and data insights to build impactful projects. Welcome to my portfolio — explore my work and feel free to get in touch!</p>
+                        <a href="https://drive.google.com/file/d/1DXuTCMk8-oW0Kkr4EbgKpPbORP8HbLfJ/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer" data-key="aboutButton">View My Resume</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="fade-in">
+            <div class="container">
+                <h2 data-key="experienceTitle">Work Experience</h2>
+                <div class="timeline">
+                    <!-- Experience Items with data-key on parent element -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><span data-key="exp1Title">Software Developer</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp1Company">TürkTraktor</span></h3>
+                            <p class="date" data-key="exp1Date">12/2023 – 05/2024</p>
+                            <ul>
+                                <li data-key="exp1Li1">Selected as a member of the recent graduate program.</li>
+                                <li data-key="exp1Li2">Worked as an ABAP Developer.</li>
+                                <li data-key="exp1Li3">Learned Agile principles.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><span data-key="exp2Title">Data Science Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp2Company">Ave Informatics</span></h3>
+                            <p class="date" data-key="exp2Date">05/2023 – 08/2023</p>
+                            <ul>
+                                <li data-key="exp2Li1">Developed word clouds and worked on data preparation for NLP applications (generating, cleaning, and formatting datasets).</li>
+                                <li data-key="exp2Li2">Utilized Python and NLTK libraries to preprocess text data by implementing techniques such as tokenization, stopword removal, and lemmatization.</li>
+                                <li data-key="exp2Li3">Gained proficiency in writing unit tests with Cucumber and JUnit for a Java web project developed using Spring Framework, Maven, and React.js</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                      <div class="timeline-content">
+                          <h3><span data-key="exp3Title">Software Development Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp3Company">AYDIN Software and Electronics Industries Inc.</span></h3>
+                          <p class="date" data-key="exp3Date">01/2022 – 04/2022</p>
+                          <ul>
+                              <li data-key="exp3Li1">Worked with a team of developers to maintain and enhance a Java-based application, with a focus on identifying and fixing minor bugs reported by users.</li>
+                              <li data-key="exp3Li2">Developed strong communication and problem-solving skills</li>
+                          </ul>
+                      </div>
+                    </div>
+                    <div class="timeline-item">
+                      <div class="timeline-content">
+                          <h3><span data-key="exp4Title">Software Development Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp4Company">ALTAY Information Technologies Defense Industrial and Trade Inc.</span></h3>
+                          <p class="date" data-key="exp4Date">04/2021 – 08/2021</p>
+                          <ul>
+                              <li data-key="exp4Li1">Worked on backend development, focusing on RESTful API design and implementation.</li>
+                              <li data-key="exp4Li2">Developed and optimized scalable microservices using C#, ASP.NET Core, and Entity Framework.</li>
+                          </ul>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </section>
+ 
+        <section id="projects" class="fade-in">
+            <div class="container">
+                <div class="project-spotlight">
+                    <div class="spotlight-text">
+                        <h2 data-key="projectsTitle">My Projects</h2>
+                        <p class="intro-text" data-key="projectsIntro">As a junior developer, I'm continuously learning by building real-world projects. I mostly focus on backend development with Java and C#, and data science with Python. Below is a featured project that showcases my current focus.</p>
+                        <!--<div class="featured-project-content">
+                            <h4 data-key="featuredProjectTitle">Featured: CV Review System (In Development)</h4>
+                            <p data-key="featuredProjectDesc">A CV review system currently under development, aiming to use NLP and generative AI techniques to assist job seekers in improving their resumes. This project represents my passion for applying complex technologies to solve real-world problems.</p>
+                        </div>-->
+                    </div>
+                    <div class="spotlight-image-container">
+                        <img src="images/mac.png" alt="Illustration of a developer coding" class="spotlight-image">
+                    </div>
+                </div>
+
+                <h3 class="more-projects-title" data-key="moreProjectsTitle">Projects</h3>
+                <div class="project-grid">
+                    <div class="project-card">
+                      <div class="project-card-content">
+                          <h3 data-key="proj1Title">Restaurant Ordering API</h3>
+                          <p data-key="proj1Desc">A RESTful API for managing restaurant orders. Developed using Java Spring Boot and PostgreSQL. Implemented CRUD operations, DTO-based request/response handling, and integrated PostgreSQL via JPA repositories.</p>
+                      </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 data-key="proj2Title">Footballers Market Value Predictor</h3>
+                            <p data-key="proj2Desc">A data analysis-focused project using football players data from Kaggle. Performed extensive data cleaning and exploratory analysis. Developed predictive models with PySpark and MLlib, including Random Forest and Linear Regression.</p>
+                            <div class="project-links">
+                              <a href="https://github.com/dogayalcin/Market-Value-Prediction-with-Big-Data-Techniques" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                      <div class="project-card-content">
+                          <h3 data-key="proj3Title">MOVR</h3>
+                          <p data-key="proj3Desc">Contributed as part of a 5-member team to integrate the MOVR website with a VR application, working with C#, Unity, and MongoDB over a 4-month agile development cycle.</p>
+                      </div>
+                    </div>
+                    <div class="project-card">
+                      <div class="project-card-content">
+                          <h3 data-key="proj4Title">IMDB Score Predictor</h3>
+                          <p data-key="proj4Desc">Performed exploratory data analysis and developed machine learning models (Linear Regression, Random Forest, KNN) to predict movie scores using Python and scikit-learn.</p>
+                          <div class="project-links">
+                            <a href="https://www.kaggle.com/code/dogayalcin/imdb-prediction" target="_blank" rel="noopener noreferrer"><i class="fab fa-kaggle"></i> Kaggle</a>
+                          </div>
+                       </div>
+                    </div>
+                    <div class="project-card">
+                      <div class="project-card-content">
+                          <h3 data-key="proj5Title">Music Reviewer</h3>
+                          <p data-key="proj5Desc">Collaborated in a team of 3 to develop a music review platform, handling backend development with Flask and database design and management using PostgreSQL.</p>
+                          <div class="project-links">
+                            <a href="https://github.com/Ayse-Sadioglu/Music-Reviewer-with-Flask" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="project-card">
+                      <div class="project-card-content">
+                          <h3 data-key="proj6Title">Story Generation</h3>
+                          <p data-key="proj6Desc">Built a story generation system using LangGraph to orchestrate language model workflows and OpenAI API to generate text and images.</p>
+                          <div class="project-links">
+                            <a href="https://github.com/dogayalcin/Story-Creating-Using-Langraph-and-OpenAI-API" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+        <section id="skills" class="fade-in">
+            <div class="container">
+                <h2 data-key="skillsTitle">Technologies & Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3 data-key="skillsCat1Title">Junior Explorer in Data & AI</h3>
+                        <p data-key="skillsCat1P1">⚡ Exploring data science and machine learning with Python and scikit-learn</p>
+                        <p data-key="skillsCat1P2">⚡ Data preprocessing and analysis with Pandas & PySpark</p>
+                        <p data-key="skillsCat1P3">⚡ Experimenting with machine learning models using scikit-learn and OpenCV</p>
+                        <div class="skills-grid">
+                            <div class="skill-item"><span class="iconify" data-icon="logos:python"></span><span>Python</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="logos:pandas"></span><span>Pandas</span></div>
+                            <div class="skill-item"><img src="images/pyspark.png" alt="PySpark" style="width:24px; height:24px;"/><span>PySpark</span></div>
+                            <div class="skill-item" style="display:flex; align-items:center; gap:8px;"><span class="iconify" data-icon="simple-icons:scikitlearn" style="font-size:32px; color:#F7931E;"></span><span>Scikit-learn</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="logos:opencv"></span><span>OpenCV</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="simple-icons:latex"></span><span>LaTeX</span></div>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3 data-key="skillsCat2Title">Curious Junior Backend & Web Developer</h3>
+                        <p data-key="skillsCat2P1">⚡ Computer Science graduate</p>
+                        <p data-key="skillsCat2P2">⚡ Developing REST APIs with Spring Boot (Java) and ASP.NET (C#)</p>
+                        <p data-key="skillsCat2P3">⚡ Working with PostgreSQL and relational databases</p>
+                        <p data-key="skillsCat2P4">⚡ Using Git, GitHub, and Linux for development workflow</p>
+                        <div class="skills-grid">
+                            <div class="skill-item"><span class="iconify" data-icon="logos:java"></span><span>Java</span></div>
+                            <div class="skill-item"><img src="images/c.png" alt="C#" style="width:44px; height:44px;"/><span>C#</span></div>
+                            <div class="skill-item" style="display:flex; align-items:center; gap:8px;"><img src="images/spring.png" alt="Spring Boot" style="width:24px; height:24px;"/><span>Spring Boot</span></div>                              
+                            <div class="skill-item"><span class="iconify" data-icon="logos:postgresql"></span><span>PostgreSQL</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="logos:git-icon"></span><span>Git</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="skill-icons:dotnet"></span><span>ASP.NET</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="simple-icons:junit5"></span><span>JUnit</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="simple-icons:pytest"></span><span>Pytest</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="logos:flask"></span><span>Flask</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="fade-in">
+            <div class="container">
+                <h2 data-key="contactTitle">Let's Get In Touch</h2>
+                <p data-key="contactIntro">I'm open to new opportunities and collaborations. Feel free to reach out—I'd love to hear from you!</p>
+                <a href="mailto:dogayalcn@gmail.com" class="btn" data-key="contactButton">dogayalcn@gmail.com</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/dogayalcin" title="GitHub" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
+                <a href="https://www.linkedin.com/in/doğa-yalçın/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- FADE-IN ANIMATION OBSERVER ---
+            const animatedElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            animatedElements.forEach(el => observer.observe(el));
+
+            // --- 3D TILT EFFECT FOR TIMELINE ---
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const content = item.querySelector('.timeline-content');
+                item.addEventListener('mousemove', (e) => {
+                    const rect = item.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rotateY = (x / rect.width - 0.5) * -25;
+                    const rotateX = (y / rect.height - 0.5) * 25;
+                    content.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    content.style.setProperty('--x', `${x}px`);
+                    content.style.setProperty('--y', `${y}px`);
+                });
+                item.addEventListener('mouseleave', () => {
+                    content.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                });
+            });
+
+            // --- 3D TILT EFFECT FOR SPOTLIGHT IMAGE ---
+            const spotlightImageContainer = document.querySelector('.spotlight-image-container');
+            if (spotlightImageContainer) {
+                const image = spotlightImageContainer.querySelector('.spotlight-image');
+                spotlightImageContainer.addEventListener('mousemove', (e) => {
+                    const rect = spotlightImageContainer.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rotateY = (x / rect.width - 0.5) * -15;
+                    const rotateX = (y / rect.height - 0.5) * 15;
+                    image.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+                    image.style.boxShadow = `0 20px 40px rgba(0, 0, 0, 0.3), ${rotateY * -1}px ${rotateX * -1}px 30px rgba(211, 161, 163, 0.2)`;
+                });
+                spotlightImageContainer.addEventListener('mouseleave', () => {
+                    image.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+                    image.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+                });
+            }
+
+            // --- LANGUAGE SWITCHER LOGIC (FIXED & COMPLETE) ---
+            const translations = {
+                'en': {
+                    'navAbout': 'About', 'navExperience': 'Experience', 'navProjects': 'Projects', 'navSkills': 'Skills', 'navContact': 'Contact',
+                    'heroName': 'Doğa Yalçın', 'heroTagline': 'Software Developer 🤖 AI Enthusiast 🔥 Always learning 📊', 'heroButton': 'View My Work',
+                    'aboutTitle': 'About Me', 'aboutGreeting': "Hi, I'm Doğa", 'aboutP1': "I'm a curious and passionate junior software developer and an enthusiastic explorer in data science and artificial intelligence.", 'aboutP2': "Always learning and evolving, I combine software development and data insights to build impactful projects. Welcome to my portfolio — explore my work and feel free to get in touch!", 'aboutButton': 'View My Resume', 'resumeLink': 'https://drive.google.com/file/d/EN_CV_LINK/view?usp=sharing',
+                    'experienceTitle': 'Work Experience',
+                    'exp1Title': 'Software Developer', 'exp1Company': 'TürkTraktor', 'exp1Date': '12/2023 – 05/2024', 'exp1Li1': 'Selected as a member of the recent graduate program.', 'exp1Li2': 'Worked as an <span class="highlight-keyword">ABAP Developer</span>.', 'exp1Li3': 'Learned <span class="highlight-keyword">Agile</span> principles.',
+                    'exp2Title': 'Data Science Intern', 'exp2Company': 'Ave Informatics', 'exp2Date': '05/2023 – 08/2023', 'exp2Li1': 'Developed word clouds and worked on data preparation for <span class="highlight-keyword">NLP</span> applications (generating, cleaning, and formatting datasets).', 'exp2Li2': 'Utilized <span class="highlight-keyword">Python</span> and <span class="highlight-keyword">NLTK</span> libraries to preprocess text data by implementing techniques such as tokenization, stopword removal, and lemmatization.', 'exp2Li3': 'Gained proficiency in writing unit tests with <span class="highlight-keyword">Cucumber</span> and <span class="highlight-keyword">JUnit</span> for a <span class="highlight-keyword">Java</span> web project developed using <span class="highlight-keyword">Spring Framework</span>, Maven, and React.js',
+                    'exp3Title': 'Software Development Intern', 'exp3Company': 'AYDIN Software and Electronics Industries Inc.', 'exp3Date': '01/2022 – 04/2022', 'exp3Li1': 'Worked with a team of developers to maintain and enhance a <span class="highlight-keyword">Java-based</span> application, with a focus on identifying and fixing minor bugs reported by users.', 'exp3Li2': 'Developed strong communication and problem-solving skills',
+                    'exp4Title': 'Software Development Intern', 'exp4Company': 'ALTAY Information Technologies Defense Industrial and Trade Inc.', 'exp4Date': '04/2021 – 08/2021', 'exp4Li1': 'Worked on backend development, focusing on <span class="highlight-keyword">RESTful API</span> design and implementation.', 'exp4Li2': 'Developed and optimized scalable microservices using <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">ASP.NET Core</span>, and <span class="highlight-keyword">Entity Framework</span>.',
+                    'projectsTitle': 'My Projects', 'projectsIntro': "As a junior developer, I'm continuously learning by building real-world projects. I mostly focus on backend development with Java and C#, and data science with Python. Below is a featured project that showcases my current focus.", 'featuredProjectTitle': 'Featured: CV Review System (In Development)', 'featuredProjectDesc': 'A CV review system currently under development, aiming to use <span class="highlight-keyword">NLP</span> and <span class="highlight-keyword">generative AI</span> techniques to assist job seekers in improving their resumes. This project represents my passion for applying complex technologies to solve real-world problems.', 'moreProjectsTitle': 'Projects',
+                    'proj1Title': 'Restaurant Ordering API', 'proj1Desc': 'A RESTful API for managing restaurant orders. Developed using <span class="highlight-keyword">Java Spring Boot</span> and <span class="highlight-keyword">PostgreSQL</span>. Implemented <span class="highlight-keyword">CRUD</span> operations, <span class="highlight-keyword">DTO</span>-based request/response handling, and integrated PostgreSQL via <span class="highlight-keyword">JPA</span> repositories.',
+                    'proj2Title': 'Footballers Market Value Predictor', 'proj2Desc': 'A data analysis-focused project using football players data from Kaggle. Performed extensive data cleaning and exploratory analysis. Developed predictive models with <span class="highlight-keyword">PySpark</span> and <span class="highlight-keyword">MLlib</span>, including <span class="highlight-keyword">Random Forest</span> and <span class="highlight-keyword">Linear Regression</span>.',
+                    'proj3Title': 'MOVR', 'proj3Desc': 'Contributed as part of a 5-member team to integrate the MOVR website with a VR application, working with <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span>, and <span class="highlight-keyword">MongoDB</span> over a 4-month <span class="highlight-keyword">agile</span> development cycle.',
+                    'proj4Title': 'IMDB Score Predictor', 'proj4Desc': 'Performed exploratory data analysis and developed machine learning models (<span class="highlight-keyword">Linear Regression</span>, <span class="highlight-keyword">Random Forest</span>, <span class="highlight-keyword">KNN</span>) to predict movie scores using <span class="highlight-keyword">Python</span> and <span class="highlight-keyword">scikit-learn</span>.',
+                    'proj5Title': 'Music Reviewer', 'proj5Desc': 'Collaborated in a team of 3 to develop a music review platform, handling backend development with <span class="highlight-keyword">Flask</span> and database design and management using <span class="highlight-keyword">PostgreSQL</span>.',
+                    'proj6Title': 'Story Generation', 'proj6Desc': 'Built a story generation system using <span class="highlight-keyword">LangGraph</span> to orchestrate language model workflows and <span class="highlight-keyword">OpenAI API</span> to generate text and images.',
+                    'skillsTitle': 'Technologies & Skills',
+                    'skillsCat1Title': 'Junior Explorer in Data & AI', 'skillsCat1P1': '⚡ Exploring data science and machine learning with Python and scikit-learn', 'skillsCat1P2': '⚡ Data preprocessing and analysis with Pandas & PySpark', 'skillsCat1P3': '⚡ Experimenting with machine learning models using scikit-learn and OpenCV',
+                    'skillsCat2Title': 'Curious Junior Backend & Web Developer', 'skillsCat2P1': '⚡ Computer Science graduate', 'skillsCat2P2': '⚡ Developing REST APIs with Spring Boot (Java) and ASP.NET (C#)', 'skillsCat2P3': '⚡ Working with PostgreSQL and relational databases', 'skillsCat2P4': '⚡ Using Git, GitHub, and Linux for development workflow',
+                    'contactTitle': "Let's Get In Touch", 'contactIntro': "I'm open to new opportunities and collaborations. Feel free to reach out—I'd love to hear from you!", 'contactButton': 'dogayalcn@gmail.com'
+                },
+                'tr': {
+                    'navAbout': 'Hakkımda', 'navExperience': 'Deneyim', 'navProjects': 'Projeler', 'navSkills': 'Yetenekler', 'navContact': 'İletişim',
+                    'heroName': 'Doğa Yalçın', 'heroTagline': 'Yazılım Geliştirici 🤖 Yapay Zeka Meraklısı 📊', 'heroButton': 'Projelerimi Gör',
+                    'aboutTitle': 'Hakkımda', 'aboutGreeting': "Merhaba, ben Doğa", 'aboutP1': "Meraklı ve tutkulu bir junior yazılım geliştiriciyim. Kodlama, veri bilimi ve yapay zekayla ilgilenen, yeni şeyler öğrenmeye açık biriyim.", 'aboutP2': "Portfolyoma hoş geldiniz 👋", 'aboutButton': 'Özgeçmişimi Görüntüle',    'resumeLink': 'https://drive.google.com/file/d/1etlHYOyqQXu7zUAWHmX3NmtIPra5_piu/view?usp=sharing',
+                    'experienceTitle': 'İş Deneyimi',
+                    'exp1Title': 'Yazılım Geliştirici', 'exp1Company': 'TürkTraktör', 'exp1Date': '12/2023 – 05/2024', 'exp1Li1': 'Yeni mezun programının bir üyesi olarak seçildim.', 'exp1Li2': '<span class="highlight-keyword">ABAP Geliştirici</span> olarak çalıştım.', 'exp1Li3': '<span class="highlight-keyword">Agile</span> prensipleri hakkında tecrübe kazandım.',
+                    'exp2Title': 'Veri Bilimi Stajyeri', 'exp2Company': 'Ave Bilişim', 'exp2Date': '05/2023 – 08/2023', 'exp2Li1': '<span class="highlight-keyword">NLP</span> uygulamaları için kelime bulutu geliştirdim ve veri ön hazırlığı üzerinde çalıştım (Veri setinin oluşturulması, temizlenmesi, istenilen formata getirilmesi).', 'exp2Li2': 'Tokenizasyon, stopword kaldırma ve lemmatizasyon gibi teknikleri uygulayarak metin verilerini işlemek için <span class="highlight-keyword">Python</span> ve <span class="highlight-keyword">NLTK</span> kütüphanelerini kullandım.', 'exp2Li3': '<span class="highlight-keyword">Spring Framework</span>, Maven ve React.js kullanılarak geliştirilen bir <span class="highlight-keyword">Java</span> web projesi için <span class="highlight-keyword">Cucumber</span> ve <span class="highlight-keyword">JUnit</span> ile birim testleri yazma konusunda yetkinlik kazandım.',
+                    'exp3Title': 'Yazılım Geliştirme Stajyeri', 'exp3Company': 'AYDIN Yazılım ve Elektronik Sanayii A.Ş.', 'exp3Date': '01/2022 – 04/2022', 'exp3Li1': 'Kullanıcılar tarafından bildirilen hataları belirleme ve düzeltme odaklı olarak <span class="highlight-keyword">Java tabanlı</span> bir uygulamayı sürdürmek ve geliştirmek için bir geliştirici ekibiyle çalıştım.', 'exp3Li2': 'Güçlü iletişim ve problem çözme becerileri geliştirdim.',
+                    'exp4Title': 'Yazılım Geliştirme Stajyeri', 'exp4Company': 'ALTAY Bilişim Teknolojileri Savunma Sanayi ve Ticaret A.Ş.', 'exp4Date': '04/2021 – 08/2021', 'exp4Li1': '<span class="highlight-keyword">RESTful API</span> tasarımı ve implementasyonuna odaklanarak backend geliştirme üzerinde çalıştım.', 'exp4Li2': '<span class="highlight-keyword">C#</span>, <span class="highlight-keyword">ASP.NET Core</span> ve <span class="highlight-keyword">Entity Framework</span> kullanarak ölçeklenebilir mikroservisler geliştirdim.',
+                    'projectsTitle': 'Projelerim', 'projectsIntro': "Bir junior geliştirici olarak, projeler yaparak sürekli öğreniyorum. Genellikle Java ve C# ile backend geliştirmeye ve Python ile veri bilimine odaklanıyorum. Aşağıda bu süreçte oluşturduğum bazı projeler var.", 'featuredProjectTitle': 'CV İnceleme Sistemi (Geliştirme Aşamasında)', 'featuredProjectDesc': 'İş arayanların özgeçmişlerini geliştirmelerine yardımcı olmak için <span class="highlight-keyword">NLP</span> ve <span class="highlight-keyword">üretken yapay zeka</span> tekniklerini kullanmayı amaçlayan, geliştirilmekte olan bir CV inceleme sistemi.', 'moreProjectsTitle': 'Projeler',
+                    'proj1Title': 'Restoran Sipariş API', 'proj1Desc': 'Restoran siparişlerini yönetmek için bir RESTful API. <span class="highlight-keyword">Java Spring Boot</span> ve <span class="highlight-keyword">PostgreSQL</span> kullanılarak geliştirdim. <span class="highlight-keyword">CRUD</span> işlemleri, <span class="highlight-keyword">DTO</span> tabanlı istek/yanıt yönetimi uyguladım ve PostgreSQL, <span class="highlight-keyword">JPA</span> repozitorileri aracılığıyla entegre ettim.',
+                    'proj2Title': 'Futbolcu Piyasa Değeri Tahmincisi', 'proj2Desc': 'Kaggle’dan aldığım futbolcu verileri üzerinde veri analizi yaptım. Projede kapsamlı veri temizliği ve analiz gerçekleştirdim. <span class="highlight-keyword">PySpark</span> ve  <span class="highlight-keyword">MLlib</span> kullanarak Random Forest ve Lineer Regresyon gibi tahmin modelleri geliştirdim.',
+                    'proj3Title': 'MOVR', 'proj3Desc': 'MOVR web sitesini bir VR uygulamasıyla entegre etmek için 5 kişilik bir ekibin parçası olarak katkıda bulundum, 4 aylık bir <span class="highlight-keyword">agile</span> geliştirme döngüsü boyunca <span class="highlight-keyword">C#</span> ve <span class="highlight-keyword">Unity</span> ile çalıştım.',
+                    'proj4Title': 'IMDB Puanı Tahmincisi', 'proj4Desc': '<span class="highlight-keyword">Python</span> ve <span class="highlight-keyword">scikit-learn</span> kullanarak film puanlarını tahmin etmek için keşifsel veri analizi yaptım ve makine öğrenmesi modelleri (<span class="highlight-keyword">Lineer Regresyon</span>, <span class="highlight-keyword">Random Forest</span>, <span class="highlight-keyword">KNN</span>) geliştirdim.',
+                    'proj5Title': 'Müzik Yorumcusu', 'proj5Desc': 'Bir müzik inceleme platformu geliştirmek için 3 kişilik bir ekipte işbirliği yaptım, <span class="highlight-keyword">Flask</span> ile backend geliştirmeyi ve <span class="highlight-keyword">PostgreSQL</span> ile veritabanı tasarımını ve yönetimini üstlendim.',
+                    'proj6Title': 'Hikaye Üretimi', 'proj6Desc': 'Dil modeli iş akışlarını düzenlemek için <span class="highlight-keyword">LangGraph</span> ve metin ile resim üretmek için <span class="highlight-keyword">OpenAI API</span> kullanarak bir hikaye üretim sistemi oluşturdum.',
+                    'skillsTitle': 'Teknolojiler & Yetenekler',
+                    'skillsCat1Title': 'Veri & Yapay Zeka', 'skillsCat1P1': ' ', 'skillsCat1P2': ' ', 'skillsCat1P3': ' ',
+                    'skillsCat2Title': 'Backend & Web', 'skillsCat2P1': ' ', 'skillsCat2P2': ' ', 'skillsCat2P3': ' ', 'skillsCat2P4': ' ',
+                    'contactTitle': 'Benimle İletişime Geçin', 'contactIntro': "Yeni fırsatlara ve işbirliklerine her zaman açığım. Dilediğiniz zaman benimle iletişime geçebilirsiniz", 'contactButton': 'dogayalcn@gmail.com'
+                },
+                'fr': {
+                    'navAbout': 'À propos', 'navExperience': 'Expérience', 'navProjects': 'Projets', 'navSkills': 'Compétences', 'navContact': 'Contact',
+                    'heroName': 'Doğa Yalçın', 'heroTagline': "Développeuse de logiciels 🤖 Passionnée d'IA 🔥 Toujours en apprentissage 📊", 'heroButton': 'Voir mes projets',
+                    'aboutTitle': 'À propos de moi', 'aboutGreeting': "Salut, c'est Doğa", 'aboutP1': "Je suis une développeuse de logiciels junior, curieuse et passionnée, et une exploratrice enthousiaste de la science des données et de l'intelligence artificielle.", 'aboutP2': "Apprenant et évoluant constamment, je combine le développement de logiciels et les informations issues des données pour créer des projets percutants. Bienvenue sur mon portfolio — explorez mon travail et n'hésitez pas à me contacter !", 'aboutButton': 'Voir mon CV',
+                    'experienceTitle': 'Expérience Professionnelle',
+                    'exp1Title': 'Développeuse de Logiciels', 'exp1Company': 'TürkTraktor', 'exp1Date': '12/2023 – 05/2024', 'exp1Li1': "Sélectionnée en tant que membre du programme pour jeunes diplômés.", 'exp1Li2': "Travaillé en tant que développeuse ABAP.", 'exp1Li3': "Appris les principes Agile.",
+                    'exp2Title': 'Stagiaire en Science des Données', 'exp2Company': 'Ave Informatics', 'exp2Date': '05/2023 – 08/2023', 'exp2Li1': "Développé des nuages de mots et travaillé sur la préparation de données pour des applications NLP (génération, nettoyage et formatage de jeux de données).", 'exp2Li2': "Utilisé les bibliothèques Python et NLTK pour prétraiter les données textuelles en implémentant des techniques telles que la tokenisation, la suppression des mots vides et la lemmatisation.", 'exp2Li3': "Acquis une compétence dans l'écriture de tests unitaires avec Cucumber et JUnit pour un projet web Java développé avec Spring Framework, Maven et React.js.",
+                    'exp3Title': 'Stagiaire en Développement Logiciel', 'exp3Company': 'AYDIN Software and Electronics Industries Inc.', 'exp3Date': '01/2022 – 04/2022', 'exp3Li1': "Travaillé avec une équipe de développeurs pour maintenir et améliorer une application basée sur Java, en se concentrant sur l'identification et la correction de bogues mineurs signalés par les utilisateurs.", 'exp3Li2': "Développé de solides compétences en communication et en résolution de problèmes.",
+                    'exp4Title': 'Stagiaire en Développement Logiciel', 'exp4Company': 'ALTAY Information Technologies Defense Industrial and Trade Inc.', 'exp4Date': '04/2021 – 08/2021', 'exp4Li1': "Travaillé sur le développement backend, en se concentrant sur la conception et l'implémentation d'API RESTful.", 'exp4Li2': "Développé et optimisé des microservices évolutifs en utilisant C#, ASP.NET Core et Entity Framework.",
+                    'projectsTitle': 'Mes Projets', 'projectsIntro': "En tant que développeuse junior, j'apprends continuellement en réalisant des projets concrets. Je me concentre principalement sur le développement backend avec Java et C#, et la science des données avec Python. Voici quelques projets que j'ai réalisés.", 'featuredProjectTitle': 'En vedette : Système d\'analyse de CV (En développement)', 'featuredProjectDesc': "Un système d'analyse de CV en cours de développement, visant à utiliser le NLP et l'IA générative pour aider les demandeurs d'emploi à améliorer leur CV. Ce projet représente ma passion pour l'application de technologies complexes à la résolution de problèmes réels.", 'moreProjectsTitle': 'Projets',
+                    'proj1Title': 'API de Commande de Restaurant', 'proj1Desc': "Une API RESTful pour gérer les commandes de restaurant. Développée avec Java Spring Boot et PostgreSQL. Implémentation des opérations CRUD, gestion des requêtes/réponses basée sur DTO, et intégration de PostgreSQL via les dépôts JPA.",
+                    'proj2Title': 'Prédicteur de Valeur Marchande des Footballeurs', 'proj2Desc': "Un projet axé sur l'analyse de données utilisant les données de joueurs de football de Kaggle. Nettoyage approfondi des données et analyse exploratoire. Développement de modèles prédictifs avec PySpark et MLlib, y compris Random Forest et Régression Linéaire.",
+                    'proj3Title': 'MOVR', 'proj3Desc': "Contribué au sein d'une équipe de 5 personnes à l'intégration du site web MOVR avec une application VR, en travaillant avec C#, Unity et MongoDB sur un cycle de développement agile de 4 mois.",
+                    'proj4Title': 'Prédicteur de Score IMDB', 'proj4Desc': "Effectué une analyse exploratoire des données et développé des modèles d'apprentissage automatique (Régression Linéaire, Random Forest, KNN) pour prédire les scores de films en utilisant Python et scikit-learn.",
+                    'proj5Title': 'Critique Musicale', 'proj5Desc': "Collaboré au sein d'une équipe de 3 pour développer une plateforme de critique musicale, en gérant le développement backend avec Flask et la conception et gestion de base de données avec PostgreSQL.",
+                    'proj6Title': 'Génération d\'Histoires', 'proj6Desc': "Construit un système de génération d'histoires utilisant LangGraph pour orchestrer les flux de travail des modèles de langage et l'API OpenAI pour générer du texte et des images.",
+                    'skillsTitle': 'Technologies & Compétences',
+                    'skillsCat1Title': 'Exploratrice Junior en Données & IA', 'skillsCat1P1': "⚡ Exploration de la science des données et de l'apprentissage automatique avec Python et scikit-learn", 'skillsCat1P2': '⚡ Prétraitement et analyse de données avec Pandas & PySpark', 'skillsCat1P3': "⚡ Expérimentation de modèles d'apprentissage automatique avec scikit-learn et OpenCV",
+                    'skillsCat2Title': 'Développeuse Junior Curieuse Backend & Web', 'skillsCat2P1': '⚡ Diplômée en Informatique', 'skillsCat2P2': '⚡ Développement d\'API REST avec Spring Boot (Java) et ASP.NET (C#)', 'skillsCat2P3': '⚡ Travail avec PostgreSQL et les bases de données relationnelles', 'skillsCat2P4': "⚡ Utilisation de Git, GitHub et Linux pour le flux de travail de développement",
+                    'contactTitle': 'Pour Me Contacter', 'contactIntro': "Je suis ouverte à de nouvelles opportunités et collaborations. N'hésitez pas à me contacter — j'adorerais avoir de vos nouvelles !", 'contactButton': 'dogayalcn@gmail.com'
+                }
+            };
+
+            const languageSwitcher = document.querySelector('.language-switcher');
+            const elementsToTranslate = document.querySelectorAll('[data-key]');
+
+            languageSwitcher.addEventListener('click', (e) => {
+                e.preventDefault();
+                const lang = e.target.dataset.lang;
+            
+                if (lang && !e.target.classList.contains('active')) {
+                    // Update the active class
+                    languageSwitcher.querySelector('.active').classList.remove('active');
+                    e.target.classList.add('active');
+                    
+                    // Switch the text content based on selected language
+                    elementsToTranslate.forEach(element => {
+                        const key = element.dataset.key;
+                        if (translations[lang] && translations[lang][key]) {
+                            element.innerHTML = translations[lang][key];
+                        }
+                    });
+            
+                    const resumeButton = document.querySelector('.about-text a.btn');
+                    if (resumeButton && translations[lang]['resumeLink']) {
+                        resumeButton.href = translations[lang]['resumeLink'];
+                    }
+            
+                    // Update the lang attribute of the html tag
+                    document.documentElement.lang = lang;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
