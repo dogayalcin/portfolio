@@ -8,7 +8,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Iconify Script for Skill Icons -->
@@ -18,14 +18,13 @@
         /* --- DESIGN SYSTEM & VARIABLES --- */
         :root {
             --dark-bg: #2c243b;
-            --glass-bg: rgba(50, 42, 68, 0.65); 
+            --glass-bg: rgba(50, 42, 68, 0.6); 
             --border-color: rgba(255, 255, 255, 0.15);
             --text-primary: #f7f2ff;
             --text-secondary: #e0d8f0;
             --accent-gradient: linear-gradient(90deg, #d3a1a3, #e1b382);
             --accent-color-1: #d3a1a3;
             --accent-color-2: #e1b382;
-            --live-green: #6ee7b7;
             --font-heading: 'Playfair Display', serif;
             --font-body: 'Montserrat', sans-serif;
             --shadow-glow: 0 0 20px rgba(211, 161, 163, 0.3);
@@ -43,17 +42,17 @@
             font-family: var(--font-body);
             background-color: transparent;
             color: var(--text-primary);
-            line-height: 1.75;
+            line-height: 1.8;
             overflow-x: hidden;
             font-weight: 400;
         }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
         section { padding: 4rem 0; }
-        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.25; }
+        h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; line-height: 1.2; }
 
         h2 {
-            font-size: 3.3rem;
+            font-size: 3.5rem;
             text-align: center;
             margin-bottom: 2.5rem;
             background: var(--accent-gradient);
@@ -62,10 +61,12 @@
             color: transparent;
         }
         
-        h3 { font-size: 1.65rem; color: var(--text-primary); margin-bottom: 0.75rem; }
+        h3 { font-size: 1.75rem; color: var(--text-primary); margin-bottom: 1rem; }
+        h4 { font-size: 1.5rem; }
         a { text-decoration: none; color: var(--accent-color-1); transition: color 0.3s ease; }
         a:hover { color: var(--accent-color-2); }
 
+        /* --- Keyword Highlighting --- */
         .highlight-keyword {
             color: var(--accent-color-2);
             font-weight: 500;
@@ -95,13 +96,9 @@
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
         .fade-in.is-visible { opacity: 1; transform: translateY(0); }
         @keyframes gradient-animation { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        @keyframes pulse-live {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.45; transform: scale(1.25); }
-        }
 
         /* --- HEADER --- */
-        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 0; z-index: 100; background: rgba(44, 36, 59, 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); }
+        .main-header { position: fixed; top: 0; left: 0; width: 100%; padding: 1rem 0; z-index: 100; background: rgba(44, 36, 59, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); }
         .main-header .container { display: flex; justify-content: center; align-items: center; position: relative; }
         .main-nav ul { display: flex; list-style: none; gap: 2rem; }
         .main-nav a { font-weight: 500; font-family: var(--font-body); color: var(--text-secondary); }
@@ -114,182 +111,80 @@
             top: 50%;
             transform: translateY(-50%);
             display: flex;
-            gap: 0.75rem;
+            gap: 1rem;
         }
+
         .language-switcher a {
             font-family: var(--font-body);
             font-weight: 500;
             font-size: 0.9rem;
             color: var(--text-secondary);
-            padding: 4px 10px;
+            text-decoration: none;
+            padding: 4px 8px;
             border-radius: 20px;
             transition: all 0.3s ease;
         }
-        .language-switcher a:hover { color: var(--text-primary); background-color: var(--glass-bg); }
-        .language-switcher a.active { color: var(--dark-bg); font-weight: 700; cursor: default; background-color: var(--accent-color-1); }
+
+        .language-switcher a:hover {
+            color: var(--text-primary);
+            background-color: var(--glass-bg);
+        }
+
+        .language-switcher a.active {
+            color: var(--dark-bg);
+            font-weight: 700;
+            cursor: default;
+            background-color: var(--accent-color-1);
+        }
 
         /* --- HERO --- */
         #hero { display: flex; align-items: center; justify-content: center; min-height: 50vh; text-align: center; padding-top: 6rem; padding-bottom: 2rem; }
-        #hero h1 { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 1.25rem; background: var(--accent-gradient); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradient-animation 5s ease infinite; }
+        #hero h1 { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 1.5rem; background: var(--accent-gradient); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradient-animation 5s ease infinite; }
         #hero .tagline { font-size: 1.2rem; max-width: 720px; margin: 0 auto 1.5rem auto; color: var(--text-secondary); font-weight: 400; }
 
         /* --- BUTTON --- */
-        .btn { display: inline-block; padding: 14px 32px; background: var(--accent-gradient); color: #fff; border-radius: 30px; font-family: var(--font-body); font-weight: 500; transition: all 0.3s ease; border: 0; }
+        .btn { display: inline-block; padding: 14px 32px; background: var(--accent-gradient); color: #fff; border-radius: 30px; font-family: var(--font-body); font-weight: 500; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(211, 161, 163, 0.0); border: 0; }
         .btn:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow); color: #fff; }
 
         /* --- ABOUT ME SECTION --- */
         .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center; }
-        .about-content img { max-width: 100%; border-radius: 20px; box-shadow: var(--shadow-glow); }
+        .about-content img { 
+            max-width: 100%; 
+            border-radius: 20px;
+            box-shadow: var(--shadow-glow); 
+        }
         .about-text p { margin-bottom: 1rem; color: var(--text-secondary); }
         .about-text .btn { margin-top: 1rem; }
-
-        /* --- SIMPLE TWO-COLUMN EXPERIENCE & EDUCATION --- */
-        .edu-exp-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            align-items: start;
-        }
-        .column-box {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .column-heading {
-            font-family: var(--font-heading);
-            font-size: 1.55rem;
-            color: var(--accent-color-2);
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.6rem;
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-        }
-        .column-heading.exp-heading {
-            color: var(--accent-color-1);
-        }
-
-        .simple-card {
-            background: rgba(44, 36, 59, 0.78);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        
+        /* --- TIMELINE --- */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 1px; background: var(--border-color); top: 0; bottom: 0; left: 50%; margin-left: -0.5px; }
+        .timeline-item { padding: 1rem 3rem; position: relative; width: 50%; perspective: 1000px; }
+        .timeline-item:nth-child(odd) { left: 0; }
+        .timeline-item:nth-child(even) { left: 50%; }
+        .timeline-content { 
+            --x: 50%; 
+            --y: 50%; 
+            position: relative; 
+            padding: 1.5rem; 
+            border-radius: 20px; 
+            background: rgba(44, 36, 59, 0.75); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px); 
+            transform-style: preserve-3d; 
+            transition: transform 0.1s ease-out; 
             border: 1px solid var(--border-color);
-            border-radius: 18px;
-            padding: 1.35rem 1.5rem;
-            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .simple-card:hover {
-            border-color: rgba(211, 161, 163, 0.45);
-            transform: translateY(-2px);
-        }
-        .simple-card.ongoing-card {
-            border-color: rgba(110, 231, 183, 0.45);
-            box-shadow: 0 0 18px rgba(110, 231, 183, 0.1);
-        }
-
-        .card-meta-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.4rem;
-            flex-wrap: wrap;
-        }
-        .card-date {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent-color-1);
-        }
-        .badge-tag {
-            font-size: 0.72rem;
-            font-weight: 600;
-            padding: 2px 10px;
-            border-radius: 20px;
-            background: rgba(225, 179, 130, 0.14);
-            color: var(--accent-color-2);
-            border: 1px solid rgba(225, 179, 130, 0.35);
-        }
-        .badge-tag.ongoing-badge {
-            background: rgba(110, 231, 183, 0.14);
-            color: var(--live-green);
-            border-color: rgba(110, 231, 183, 0.45);
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .live-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--live-green);
-            display: inline-block;
-            animation: pulse-live 1.6s infinite;
-        }
-
-        .simple-card h3 {
-            font-size: 1.22rem;
-            margin-bottom: 0.25rem;
-        }
-        .card-subtitle {
-            display: block;
-            font-size: 0.9rem;
-            font-style: italic;
-            color: var(--text-secondary);
-            margin-bottom: 0.65rem;
-        }
-        .simple-card ul {
-            list-style-position: inside;
-            color: var(--text-primary);
-            font-size: 0.92rem;
-            line-height: 1.6;
-        }
-        .simple-card li {
-            margin-bottom: 0.25rem;
-        }
-        .simple-card p.card-text {
-            font-size: 0.92rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Compact Click-to-Expand Cards */
-        .simple-card.compact-toggle {
-            padding: 1rem 1.35rem;
-            cursor: pointer;
-        }
-        .compact-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-        .compact-header h3 {
-            font-size: 1.12rem;
-            margin-bottom: 0.15rem;
-        }
-        .compact-header .card-subtitle {
-            margin-bottom: 0;
-            font-size: 0.86rem;
-        }
-        .toggle-icon {
-            color: var(--accent-color-2);
-            font-size: 0.95rem;
-            margin-top: 0.25rem;
-            transition: transform 0.25s ease;
-            flex-shrink: 0;
-        }
-        .simple-card.compact-toggle.is-open .toggle-icon {
-            transform: rotate(180deg);
-        }
-        .compact-body {
-            display: none;
-            margin-top: 0.75rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .simple-card.compact-toggle.is-open .compact-body {
-            display: block;
+        .timeline-content::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 20px; background: radial-gradient(circle 200px at var(--x) var(--y), rgba(211, 161, 163, 0.2), transparent); opacity: 0; transition: opacity 0.4s ease-out; pointer-events: none; }
+        .timeline-item:hover .timeline-content::before { opacity: 1; }
+        .timeline-item::after { content: ''; position: absolute; width: 16px; height: 16px; right: -8px; background-color: var(--dark-bg); border: 3px solid var(--accent-color-1); top: 30px; border-radius: 50%; z-index: 1; transition: transform 0.3s ease; }
+        .timeline-item:nth-child(even)::after { left: -8px; }
+        .timeline-item:hover::after { transform: scale(1.3); box-shadow: var(--shadow-glow); background: var(--accent-gradient); }
+        .timeline-content .date { font-size: 0.9rem; font-weight: 500; color: var(--accent-color-1); margin-bottom: 0.5rem; }
+        .timeline-content ul { 
+            list-style-position: inside; 
+            padding-left: 0; 
+            color: var(--text-primary); 
         }
 
         /* --- PROJECTS SECTION --- */
@@ -308,7 +203,7 @@
         /* --- SKILLS SECTION --- */
         .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
         .skill-category h3 { text-align: center; font-size: 2rem; }
-        .skill-category p { text-align: center; color: var(--text-secondary); margin-bottom: 0.75rem; }
+        .skill-category p { text-align: center; color: var(--text-secondary); margin-bottom: 1rem; }
         .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
         .skill-item { display: flex; align-items: center; gap: 0.75rem; background: var(--glass-bg); border: 1px solid var(--border-color); padding: 0.75rem 1.5rem; border-radius: 25px; transition: all 0.3s ease; }
         .skill-item:hover { color: var(--dark-bg); background: var(--accent-gradient); border-color: transparent; transform: translateY(-3px); }
@@ -327,14 +222,17 @@
 
         /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 900px) {
-            .language-switcher { position: static; transform: none; margin-top: 0.75rem; justify-content: center; }
+            .language-switcher { position: static; transform: none; margin-top: 1rem; justify-content: center; }
             .main-header .container { flex-direction: column; }
         }
         @media (max-width: 768px) {
             h2 { font-size: 2.5rem; }
             .about-content { grid-template-columns: 1fr; text-align: center; }
             .about-content img { max-width: 200px; margin: 0 auto 2rem auto; }
-            .edu-exp-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .timeline::after { left: 15px; }
+            .timeline-item { width: 100%; padding-left: 50px; padding-right: 1rem; }
+            .timeline-item:nth-child(even) { left: 0%; }
+            .timeline-item::after { left: 7px; }
             .skills-container { grid-template-columns: 1fr; }
             .project-spotlight { grid-template-columns: 1fr; text-align: center; }
             .spotlight-image-container { order: -1; max-width: 250px; margin: 0 auto 2rem auto; }
@@ -369,7 +267,7 @@
         <section id="hero">
             <div class="container fade-in">
                 <h1 data-key="heroName">Doğa Yalçın</h1>
-                <p class="tagline" data-key="heroTagline">M2 Fintech Student 📊 Seeking a 6-Month Internship (March 2027)</p>
+                <p class="tagline" data-key="heroTagline">M2 EIT Fintech & Data Science Student 📊 Seeking a 6-Month Internship (March 2027)</p>
                 <a href="#projects" class="btn" data-key="heroButton">View My Work</a>
             </div>
         </section>
@@ -381,8 +279,8 @@
                     <img src="images/me.jpg" alt="Photo of Doga Yalcin">
                     <div class="about-text">
                         <h3 data-key="aboutGreeting">Hi, I'm Doğa</h3>
-                        <p data-key="aboutP1">I’m a final-year Master’s (M2) student in Financial Technologies (FinTech) at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).</p>
-                        <p data-key="aboutP2">With hands-on experience in <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span>, and data-driven software development using Python and SQL, I focus on turning complex data into impactful, production-ready solutions. Explore my projects below and feel free to reach out!</p>
+                        <p data-key="aboutP1">I’m a final-year Master’s (M2) student in the Master MIAGE – International Track in EIT Fintech / Data Science at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).</p>
+                        <p data-key="aboutP2">With hands-on experience in <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span>, and software development using Python and SQL, I focus on turning complex data into impactful, production-ready solutions. Explore my projects below and feel free to reach out!</p>
                         <a href="https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer" data-key="aboutButton">View My Resume</a>
                     </div>
                 </div>
@@ -392,157 +290,116 @@
         <section id="experience" class="fade-in">
             <div class="container">
                 <h2 data-key="experienceTitle">Education, Experience & Volunteering</h2>
-                
-                <div class="edu-exp-grid">
-                    <!-- LEFT COLUMN: EDUCATION & ACADEMIC PROGRAMS -->
-                    <div class="column-box">
-                        <div class="column-heading">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span data-key="colEduTitle">Education & Programs</span>
-                        </div>
-
-                        <!-- 1. Master 2 MIAGE -->
-                        <div class="simple-card">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="exp1Date">09/2025 – 09/2027 (Expected)</span>
-                                <span class="badge-tag" data-key="badgeMaster">Master's Degree</span>
-                            </div>
-                            <h3 data-key="exp1Title">Master 2 MIAGE – International Track in EIT Fintech / Data Science</h3>
-                            <span class="card-subtitle" data-key="exp1Company">ISTIC, University of Rennes (GPA: 15.85/20)</span>
+                <div class="timeline">
+                    <!-- 1: Master M2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; color: var(--accent-color-2);">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path>
+                            </svg>
+                            <h3><span data-key="exp1Title">Master 2 MIAGE – International Track in EIT Fintech / Data Science</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp1Company">ISTIC, University of Rennes (GPA: 15.85/20)</span></h3>
+                            <p class="date" data-key="exp1Date">09/2025 – 09/2027 (Expected)</p>
                             <ul>
                                 <li data-key="exp1Li1"><span class="highlight-keyword">Machine Learning</span> & <span class="highlight-keyword">Data Mining</span></li>
                                 <li data-key="exp1Li2"><span class="highlight-keyword">Cloud & Big Data</span> Architectures</li>
                                 <li data-key="exp1Li3"><span class="highlight-keyword">Fintech Case Studies</span> & Quantitative Finance</li>
                             </ul>
                         </div>
+                    </div>
 
-                        <!-- 2. REDINEST Impact Labs (Academic Program - Click to Expand) -->
-                        <div class="simple-card compact-toggle" onclick="this.classList.toggle('is-open')">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="expRedDate">03/2026 – 06/2026</span>
-                                <span class="badge-tag" data-key="badgeProg">Academic Program</span>
-                            </div>
-                            <div class="compact-header">
-                                <div>
-                                    <h3 data-key="expRedTitle">REDINEST Impact Labs</h3>
-                                    <span class="card-subtitle" data-key="expRedCompany">ELTE University (Budapest, Hungary)</span>
-                                </div>
-                                <i class="fas fa-chevron-down toggle-icon"></i>
-                            </div>
-                            <div class="compact-body">
-                                <p class="card-text" data-key="expRedDesc">Hybrid international innovation program (Madrid, Belgrade, Évora, Rennes) focused on urban digital transformation and civic engagement.</p>
-                            </div>
-                        </div>
-
-                        <!-- 3. BSc Computer Science -->
-                        <div class="simple-card">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="exp3Date">08/2019 – 09/2023</span>
-                                <span class="badge-tag" data-key="badgeBsc">Bachelor's Degree</span>
-                            </div>
-                            <h3 data-key="exp3Title">BSc in Computer Science</h3>
-                            <span class="card-subtitle" data-key="exp3Company">TOBB University of Economics and Technology</span>
+                    <!-- 2: REDINEST -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; color: var(--accent-color-2);">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            </svg>
+                            <h3><span data-key="expRedTitle">REDINEST Impact Labs</span><br><span style="font-size: smaller; font-style: italic;" data-key="expRedCompany">ELTE University (Budapest, Hungary)</span></h3>
+                            <p class="date" data-key="expRedDate">03/2026 – 06/2026</p>
                             <ul>
-                                <li data-key="exp3Li1">Artificial Intelligence & Machine Learning</li>
-                                <li data-key="exp3Li2">Database Systems, Data Structures & Algorithms</li>
+                                <li data-key="expRedLi1">Hybrid innovation program on urban digital transformation and civic engagement.</li>
+                                <li data-key="expRedLi2">Collaborated in an international team (Madrid, Belgrade, Évora, Rennes) on real-world challenges.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- RIGHT COLUMN: WORK EXPERIENCE & VOLUNTEERING -->
-                    <div class="column-box">
-                        <div class="column-heading exp-heading">
-                            <i class="fas fa-briefcase"></i>
-                            <span data-key="colExpTitle">Experience & Volunteering</span>
+                    <!-- 3: Volunteering (EpiFree) -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; color: var(--accent-color-2);">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            <h3><span data-key="expVolTitle">Volunteer (Student Food Distribution)</span><br><span style="font-size: smaller; font-style: italic;" data-key="expVolCompany">EpiFree Rennes (Rennes, France)</span></h3>
+                            <p class="date" data-key="expVolDate">02/2026 – Present</p>
+                            <ul>
+                                <li data-key="expVolLi1">Actively participated in weekly food distributions: managed stands and assisted students.</li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <!-- 1. Volunteering EpiFree (Ongoing) -->
-                        <div class="simple-card ongoing-card">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="expVolDate">02/2026 – Present</span>
-                                <span class="badge-tag ongoing-badge"><span class="live-dot"></span><span data-key="expVolDur">Ongoing</span></span>
-                            </div>
-                            <h3 data-key="expVolTitle">Volunteer – Student Food Distribution</h3>
-                            <span class="card-subtitle" data-key="expVolCompany">EpiFree Rennes (Rennes, France)</span>
-                            <p class="card-text" data-key="expVolDesc">Actively participating in weekly solidarity food distributions: managing stands and assisting students.</p>
+                    <!-- 4: TurkTraktor -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><span data-key="exp2Title">Software Developer (Future Driver)</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp2Company">TürkTraktor</span></h3>
+                            <p class="date" data-key="exp2Date">12/2023 – 05/2024</p>
+                            <ul>
+                                <li data-key="exp2Li1">Selected for the Future Driver graduate program.</li>
+                                <li data-key="exp2Li2">Developed interactive <span class="highlight-keyword">ABAP</span> ALV reports from functional specifications to extract and filter SAP data.</li>
+                                <li data-key="exp2Li3">Automated operational business processes within an <span class="highlight-keyword">Agile</span> workflow.</li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <!-- 2. TürkTraktor (Click to Expand) -->
-                        <div class="simple-card compact-toggle" onclick="this.classList.toggle('is-open')">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="exp2Date">12/2023 – 05/2024</span>
-                                <span class="badge-tag" data-key="badgeWork">Graduate Program</span>
-                            </div>
-                            <div class="compact-header">
-                                <div>
-                                    <h3 data-key="exp2Title">Software Developer (Future Driver)</h3>
-                                    <span class="card-subtitle" data-key="exp2Company">TürkTraktor</span>
-                                </div>
-                                <i class="fas fa-chevron-down toggle-icon"></i>
-                            </div>
-                            <div class="compact-body">
-                                <ul>
-                                    <li data-key="exp2Li1">Developed interactive <span class="highlight-keyword">ABAP</span> ALV reports from functional specifications to extract and filter SAP data.</li>
-                                    <li data-key="exp2Li2">Automated operational business processes within an <span class="highlight-keyword">Agile</span> workflow.</li>
-                                </ul>
-                            </div>
+                    <!-- 5: TOBB ETU -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; color: var(--accent-color-2);">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path>
+                            </svg>
+                            <h3><span data-key="exp3Title">BSc in Computer Science</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp3Company">TOBB University of Economics and Technology</span></h3>
+                            <p class="date" data-key="exp3Date">08/2019 – 09/2023</p>
+                            <ul>
+                                <li data-key="exp3Li1">Artificial Intelligence & Machine Learning</li>
+                                <li data-key="exp3Li2">Database Systems & Data Structures / Algorithms</li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <!-- 3. Ave Informatics (Click to Expand) -->
-                        <div class="simple-card compact-toggle" onclick="this.classList.toggle('is-open')">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="exp4Date">05/2023 – 08/2023</span>
-                                <span class="badge-tag" data-key="badgeInt1">Internship</span>
-                            </div>
-                            <div class="compact-header">
-                                <div>
-                                    <h3 data-key="exp4Title">Data Science Intern</h3>
-                                    <span class="card-subtitle" data-key="exp4Company">Ave Informatics</span>
-                                </div>
-                                <i class="fas fa-chevron-down toggle-icon"></i>
-                            </div>
-                            <div class="compact-body">
-                                <ul>
-                                    <li data-key="exp4Li1">Preprocessed and cleaned textual data (tokenization, lemmatization) for <span class="highlight-keyword">NLP</span> using <span class="highlight-keyword">Python</span> and NLTK.</li>
-                                    <li data-key="exp4Li2">Conducted unit testing (Cucumber, JUnit) and delivered clean datasets.</li>
-                                </ul>
-                            </div>
+                    <!-- 6: Ave Informatics -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><span data-key="exp4Title">Data Science Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp4Company">Ave Informatics</span></h3>
+                            <p class="date" data-key="exp4Date">05/2023 – 08/2023</p>
+                            <ul>
+                                <li data-key="exp4Li1">Preprocessed and cleaned textual data (tokenization, lemmatization) for <span class="highlight-keyword">NLP</span> applications using <span class="highlight-keyword">Python</span> and NLTK.</li>
+                                <li data-key="exp4Li2">Conducted unit testing (Cucumber, JUnit), updated documentation, and delivered clean datasets.</li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <!-- 4. AYDIN Software (Click to Expand) -->
-                        <div class="simple-card compact-toggle" onclick="this.classList.toggle('is-open')">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="exp5Date">01/2022 – 04/2022</span>
-                                <span class="badge-tag" data-key="badgeInt2">Internship</span>
-                            </div>
-                            <div class="compact-header">
-                                <div>
-                                    <h3 data-key="exp5Title">Software Development Intern</h3>
-                                    <span class="card-subtitle" data-key="exp5Company">AYDIN Software and Electronics Industries Inc.</span>
-                                </div>
-                                <i class="fas fa-chevron-down toggle-icon"></i>
-                            </div>
-                            <div class="compact-body">
-                                <p class="card-text" data-key="exp5Desc">Maintained and enhanced a <span class="highlight-keyword">Java</span> application within a developer team, resolving user-reported bugs.</p>
-                            </div>
+                    <!-- 7: AYDIN -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><span data-key="exp5Title">Software Development Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp5Company">AYDIN Software and Electronics Industries Inc.</span></h3>
+                            <p class="date" data-key="exp5Date">01/2022 – 04/2022</p>
+                            <ul>
+                                <li data-key="exp5Li1">Maintained and enhanced a <span class="highlight-keyword">Java</span> application within a developer team, resolving user-reported bugs.</li>
+                                <li data-key="exp5Li2">Strengthened collaborative debugging and problem-solving skills.</li>
+                            </ul>
                         </div>
+                    </div>
 
-                        <!-- 5. ALTAY Info Tech (Click to Expand) -->
-                        <div class="simple-card compact-toggle" onclick="this.classList.toggle('is-open')">
-                            <div class="card-meta-top">
-                                <span class="card-date" data-key="exp6Date">04/2021 – 08/2021</span>
-                                <span class="badge-tag" data-key="badgeInt3">Internship</span>
-                            </div>
-                            <div class="compact-header">
-                                <div>
-                                    <h3 data-key="exp6Title">Software Development Intern</h3>
-                                    <span class="card-subtitle" data-key="exp6Company">ALTAY Information Technologies</span>
-                                </div>
-                                <i class="fas fa-chevron-down toggle-icon"></i>
-                            </div>
-                            <div class="compact-body">
-                                <p class="card-text" data-key="exp6Desc">Designed and implemented <span class="highlight-keyword">RESTful APIs</span> and scalable microservices using <span class="highlight-keyword">C#</span>, ASP.NET Core, and Entity Framework.</p>
-                            </div>
+                    <!-- 8: ALTAY -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3><span data-key="exp6Title">Software Development Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp6Company">ALTAY Information Technologies</span></h3>
+                            <p class="date" data-key="exp6Date">04/2021 – 08/2021</p>
+                            <ul>
+                                <li data-key="exp6Li1">Designed and implemented <span class="highlight-keyword">RESTful APIs</span> and scalable microservices using <span class="highlight-keyword">C#</span>, ASP.NET Core, and Entity Framework.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -647,8 +504,8 @@
                 <h2 data-key="skillsTitle">Technologies & Skills</h2>
                 <div class="skills-container">
                     <div class="skill-category">
-                        <h3 data-key="skillsCat1Title">Data Science, ML & AI</h3>
-                        <p data-key="skillsCat1P1">⚡ Machine Learning & Distributed Big Data modeling (Python, Scikit-learn, PySpark)</p>
+                        <h3 data-key="skillsCat1Title">Data Science & AI</h3>
+                        <p data-key="skillsCat1P1">⚡ Machine Learning & Big Data modeling with Python, Scikit-learn, and PySpark</p>
                         <p data-key="skillsCat1P2">⚡ Generative AI workflows & NLP pipelines (LangGraph, OpenAI API, NLTK)</p>
                         <div class="skills-grid">
                             <div class="skill-item"><span class="iconify" data-icon="logos:python"></span><span>Python</span></div>
@@ -660,15 +517,17 @@
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3 data-key="skillsCat2Title">Data Engineering, Cloud & FinTech</h3>
-                        <p data-key="skillsCat2P1">⚡ Cloud ELT pipelines & Medallion architecture (Snowflake, dbt, Talend)</p>
-                        <p data-key="skillsCat2P2">⚡ SQL analytics, BI dashboards & financial analysis (PostgreSQL, Power BI, Bloomberg)</p>
+                        <h3 data-key="skillsCat2Title">Data Engineering & Backend</h3>
+                        <p data-key="skillsCat2P1">⚡ Modern ELT pipelines & Medallion architecture (Snowflake, dbt, Talend)</p>
+                        <p data-key="skillsCat2P2">⚡ Relational databases & backend APIs (SQL, PostgreSQL, Java, C#, Flask)</p>
                         <div class="skills-grid">
                             <div class="skill-item"><span class="iconify" data-icon="simple-icons:snowflake" style="color:#29B5E8;"></span><span>Snowflake</span></div>
                             <div class="skill-item"><span class="iconify" data-icon="simple-icons:dbt" style="color:#FF694B;"></span><span>dbt</span></div>
-                            <div class="skill-item"><span class="iconify" data-icon="logos:postgresql"></span><span>SQL / PostgreSQL</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="logos:postgresql"></span><span>PostgreSQL / SQL</span></div>
                             <div class="skill-item"><span class="iconify" data-icon="simple-icons:powerbi" style="color:#F2C811;"></span><span>Power BI</span></div>
-                            <div class="skill-item"><span class="iconify" data-icon="mdi:chart-line" style="color:#e1b382;"></span><span>Bloomberg Terminal</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="logos:java"></span><span>Java</span></div>
+                            <div class="skill-item"><img src="images/c.png" alt="C#" style="width:28px; height:28px;"/><span>C# (.NET)</span></div>
+                            <div class="skill-item"><span class="iconify" data-icon="logos:flask"></span><span>Flask</span></div>
                             <div class="skill-item"><span class="iconify" data-icon="logos:git-icon"></span><span>Git / Linux</span></div>
                         </div>
                     </div>
@@ -679,7 +538,7 @@
         <section id="contact" class="fade-in">
             <div class="container">
                 <h2 data-key="contactTitle">Let's Get In Touch</h2>
-                <p data-key="contactIntro">I'm actively seeking a 6-month graduation internship in FinTech, Data Science, or Data Engineering starting March 2027 (open to relocation across France). Feel free to reach out!</p>
+                <p data-key="contactIntro">I'm actively seeking a 6-month graduation internship in Data Science, Data Engineering, or FinTech starting March 2027 (open to relocation across France). Feel free to reach out!</p>
                 <a href="mailto:dogayalcn@gmail.com" class="btn" data-key="contactButton">dogayalcn@gmail.com</a>
             </div>
         </section>
@@ -708,6 +567,25 @@
             }, { threshold: 0.1 });
             animatedElements.forEach(el => observer.observe(el));
 
+            // --- 3D TILT EFFECT FOR TIMELINE ---
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                const content = item.querySelector('.timeline-content');
+                item.addEventListener('mousemove', (e) => {
+                    const rect = item.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const rotateY = (x / rect.width - 0.5) * -25;
+                    const rotateX = (y / rect.height - 0.5) * 25;
+                    content.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    content.style.setProperty('--x', `${x}px`);
+                    content.style.setProperty('--y', `${y}px`);
+                });
+                item.addEventListener('mouseleave', () => {
+                    content.style.transform = 'rotateX(0deg) rotateY(0deg)';
+                });
+            });
+
             // --- 3D TILT EFFECT FOR SPOTLIGHT IMAGE ---
             const spotlightImageContainer = document.querySelector('.spotlight-image-container');
             if (spotlightImageContainer) {
@@ -732,24 +610,15 @@
                 'en': {
                     'navAbout': 'About', 'navExperience': 'Experience', 'navProjects': 'Projects', 'navSkills': 'Skills', 'navContact': 'Contact',
                     'heroName': 'Doğa Yalçın',
-                    'heroTagline': 'M2 Fintech Student 📊 Seeking a 6-Month Internship (March 2027)',
+                    'heroTagline': 'M2 EIT Fintech & Data Science Student 📊 Seeking a 6-Month Internship (March 2027)',
                     'heroButton': 'View My Work',
                     'aboutTitle': 'About Me',
                     'aboutGreeting': "Hi, I'm Doğa",
-                    'aboutP1': 'I’m a final-year Master’s (M2) student in Financial Technologies (FinTech) at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).',
-                    'aboutP2': 'With hands-on experience in <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span>, and data-driven software development using Python and SQL, I focus on turning complex data into impactful, production-ready solutions. Explore my projects below and feel free to reach out!',
+                    'aboutP1': 'I’m a final-year Master’s (M2) student in the Master MIAGE – International Track in EIT Fintech / Data Science at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).',
+                    'aboutP2': 'With hands-on experience in <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span>, and software development using Python and SQL, I focus on turning complex data into impactful, production-ready solutions. Explore my projects below and feel free to reach out!',
                     'aboutButton': 'View My Resume',
                     'resumeLink': 'https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link',
                     'experienceTitle': 'Education, Experience & Volunteering',
-                    'colEduTitle': 'Education & Programs',
-                    'colExpTitle': 'Experience & Volunteering',
-                    'badgeMaster': "Master's Degree",
-                    'badgeProg': 'Academic Program',
-                    'badgeBsc': "Bachelor's Degree",
-                    'badgeWork': 'Graduate Program',
-                    'badgeInt1': 'Internship',
-                    'badgeInt2': 'Internship',
-                    'badgeInt3': 'Internship',
                     'exp1Title': 'Master 2 MIAGE – International Track in EIT Fintech / Data Science',
                     'exp1Company': 'ISTIC, University of Rennes (GPA: 15.85/20)',
                     'exp1Date': '09/2025 – 09/2027 (Expected)',
@@ -759,35 +628,37 @@
                     'expRedTitle': 'REDINEST Impact Labs',
                     'expRedCompany': 'ELTE University (Budapest, Hungary)',
                     'expRedDate': '03/2026 – 06/2026',
-                    'expRedDesc': 'Hybrid international innovation program (Madrid, Belgrade, Évora, Rennes) focused on urban digital transformation and civic engagement.',
+                    'expRedLi1': 'Hybrid innovation program on urban digital transformation and civic engagement.',
+                    'expRedLi2': 'Collaborated in an international team (Madrid, Belgrade, Évora, Rennes) on real-world challenges.',
+                    'expVolTitle': 'Volunteer (Student Food Distribution)',
+                    'expVolCompany': 'EpiFree Rennes (Rennes, France)',
+                    'expVolDate': '02/2026 – Present',
+                    'expVolLi1': 'Actively participated in weekly food distributions: managed stands and assisted students.',
+                    'exp2Title': 'Software Developer (Future Driver)',
+                    'exp2Company': 'TürkTraktor',
+                    'exp2Date': '12/2023 – 05/2024',
+                    'exp2Li1': 'Selected for the Future Driver graduate program.',
+                    'exp2Li2': 'Developed interactive <span class="highlight-keyword">ABAP</span> ALV reports from functional specifications to extract and filter SAP data.',
+                    'exp2Li3': 'Automated operational business processes within an <span class="highlight-keyword">Agile</span> workflow.',
                     'exp3Title': 'BSc in Computer Science',
                     'exp3Company': 'TOBB University of Economics and Technology',
                     'exp3Date': '08/2019 – 09/2023',
                     'exp3Li1': 'Artificial Intelligence & Machine Learning',
-                    'exp3Li2': 'Database Systems, Data Structures & Algorithms',
-                    'expVolTitle': 'Volunteer – Student Food Distribution',
-                    'expVolCompany': 'EpiFree Rennes (Rennes, France)',
-                    'expVolDate': '02/2026 – Present',
-                    'expVolDur': 'Ongoing',
-                    'expVolDesc': 'Actively participating in weekly solidarity food distributions: managing stands and assisting students.',
-                    'exp2Title': 'Software Developer (Future Driver)',
-                    'exp2Company': 'TürkTraktor',
-                    'exp2Date': '12/2023 – 05/2024',
-                    'exp2Li1': 'Developed interactive <span class="highlight-keyword">ABAP</span> ALV reports from functional specifications to extract and filter SAP data.',
-                    'exp2Li2': 'Automated operational business processes within an <span class="highlight-keyword">Agile</span> workflow.',
+                    'exp3Li2': 'Database Systems & Data Structures / Algorithms',
                     'exp4Title': 'Data Science Intern',
                     'exp4Company': 'Ave Informatics',
                     'exp4Date': '05/2023 – 08/2023',
-                    'exp4Li1': 'Preprocessed and cleaned textual data (tokenization, lemmatization) for <span class="highlight-keyword">NLP</span> using <span class="highlight-keyword">Python</span> and NLTK.',
-                    'exp4Li2': 'Conducted unit testing (Cucumber, JUnit) and delivered clean datasets.',
+                    'exp4Li1': 'Preprocessed and cleaned textual data (tokenization, lemmatization) for <span class="highlight-keyword">NLP</span> applications using <span class="highlight-keyword">Python</span> and NLTK.',
+                    'exp4Li2': 'Conducted unit testing (Cucumber, JUnit), updated documentation, and delivered clean datasets.',
                     'exp5Title': 'Software Development Intern',
                     'exp5Company': 'AYDIN Software and Electronics Industries Inc.',
                     'exp5Date': '01/2022 – 04/2022',
-                    'exp5Desc': 'Maintained and enhanced a <span class="highlight-keyword">Java</span> application within a developer team, resolving user-reported bugs.',
+                    'exp5Li1': 'Maintained and enhanced a <span class="highlight-keyword">Java</span> application within a developer team, resolving user-reported bugs.',
+                    'exp5Li2': 'Strengthened collaborative debugging and problem-solving skills.',
                     'exp6Title': 'Software Development Intern',
                     'exp6Company': 'ALTAY Information Technologies',
                     'exp6Date': '04/2021 – 08/2021',
-                    'exp6Desc': 'Designed and implemented <span class="highlight-keyword">RESTful APIs</span> and scalable microservices using <span class="highlight-keyword">C#</span>, ASP.NET Core, and Entity Framework.',
+                    'exp6Li1': 'Designed and implemented <span class="highlight-keyword">RESTful APIs</span> and scalable microservices using <span class="highlight-keyword">C#</span>, ASP.NET Core, and Entity Framework.',
                     'projectsTitle': 'My Projects',
                     'projectsIntro': 'I continuously build end-to-end projects bridging Data Engineering, Machine Learning, and FinTech—from cloud ELT pipelines on Snowflake to distributed PySpark modeling and Bloomberg financial analysis.',
                     'moreProjectsTitle': 'Featured Projects',
@@ -808,38 +679,29 @@
                     'proj3Title': 'MOVR VR Web Integration',
                     'proj3Desc': 'Contributed in a 5-member agile team to integrate the MOVR web platform with a VR application using <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span>, and <span class="highlight-keyword">MongoDB</span>.',
                     'skillsTitle': 'Technologies & Skills',
-                    'skillsCat1Title': 'Data Science, ML & AI',
-                    'skillsCat1P1': '⚡ Machine Learning & Distributed Big Data modeling (Python, Scikit-learn, PySpark)',
+                    'skillsCat1Title': 'Data Science & AI',
+                    'skillsCat1P1': '⚡ Machine Learning & Big Data modeling with Python, Scikit-learn, and PySpark',
                     'skillsCat1P2': '⚡ Generative AI workflows & NLP pipelines (LangGraph, OpenAI API, NLTK)',
-                    'skillsCat2Title': 'Data Engineering, Cloud & FinTech',
-                    'skillsCat2P1': '⚡ Cloud ELT pipelines & Medallion architecture (Snowflake, dbt, Talend)',
-                    'skillsCat2P2': '⚡ SQL analytics, BI dashboards & financial analysis (PostgreSQL, Power BI, Bloomberg)',
+                    'skillsCat2Title': 'Data Engineering & Backend',
+                    'skillsCat2P1': '⚡ Modern ELT pipelines & Medallion architecture (Snowflake, dbt, Talend)',
+                    'skillsCat2P2': '⚡ Relational databases & backend APIs (SQL, PostgreSQL, Java, C#, Flask)',
                     'contactTitle': "Let's Get In Touch",
-                    'contactIntro': "I'm actively seeking a 6-month graduation internship in FinTech, Data Science, or Data Engineering starting March 2027 (open to relocation across France). Feel free to reach out!",
+                    'contactIntro': "I'm actively seeking a 6-month graduation internship in Data Science, Data Engineering, or FinTech starting March 2027 (open to relocation across France). Feel free to reach out!",
                     'contactButton': 'dogayalcn@gmail.com'
                 },
                 'tr': {
                     'navAbout': 'Hakkımda', 'navExperience': 'Deneyim', 'navProjects': 'Projeler', 'navSkills': 'Yetenekler', 'navContact': 'İletişim',
                     'heroName': 'Doğa Yalçın',
-                    'heroTagline': 'M2 Fintech Yüksek Lisans Öğrencisi 📊 Mart 2027 Bitirme Stajı Arayışında',
+                    'heroTagline': 'M2 EIT Fintech & Veri Bilimi Yüksek Lisans Öğrencisi 📊 Mart 2027 Uzun Dönem Staj Arayışında',
                     'heroButton': 'Projelerimi Gör',
                     'aboutTitle': 'Hakkımda',
                     'aboutGreeting': 'Merhaba, ben Doğa',
-                    'aboutP1': 'Rennes Üniversitesi Finansal Teknolojiler (FinTech) yüksek lisans (M2) son sınıf öğrencisiyim. <span class="highlight-keyword">Mart 2027 itibarıyla 6 aylık bitirme stajı</span> arıyorum (Fransa genelinde taşınmaya açığım).',
-                    'aboutP2': 'Python ve SQL kullanarak <span class="highlight-keyword">Makine Öğrenmesi</span>, <span class="highlight-keyword">Veri Mühendisliği (ETL/ELT)</span> ve veri odaklı yazılım geliştirme alanlarında edindiğim tecrübeyle veriden somut ve ölçeklenebilir çözümler üretmeye odaklanıyorum. Projelerimi inceleyebilir ve benimle iletişime geçebilirsiniz!',
+                    'aboutP1': 'Rennes Üniversitesi Master MIAGE – Uluslararası EIT Fintech / Veri Bilimi yüksek lisans (M2) son sınıf öğrencisiyim. <span class="highlight-keyword">Mart 2027 itibarıyla 6 aylık bitirme stajı</span> arıyorum (Fransa genelinde taşınmaya açığım).',
+                    'aboutP2': 'Python ve SQL kullanarak <span class="highlight-keyword">Makine Öğrenmesi</span>, <span class="highlight-keyword">Veri Mühendisliği (ETL/ELT)</span> ve yazılım geliştirme alanlarında edindiğim tecrübeyle veriden somut ve ölçeklenebilir çözümler üretmeye odaklanıyorum. Projelerimi inceleyebilir ve benimle iletişime geçebilirsiniz!',
                     'aboutButton': 'Özgeçmişimi Görüntüle',
                     'resumeLink': 'https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link',
                     'experienceTitle': 'Eğitim, İş Deneyimi & Gönüllülük',
-                    'colEduTitle': 'Eğitim & Programlar',
-                    'colExpTitle': 'İş Deneyimi & Gönüllülük',
-                    'badgeMaster': 'Yüksek Lisans',
-                    'badgeProg': 'Akademik Program',
-                    'badgeBsc': 'Lisans',
-                    'badgeWork': 'Yeni Mezun Programı',
-                    'badgeInt1': 'Staj',
-                    'badgeInt2': 'Staj',
-                    'badgeInt3': 'Staj',
-                    'exp1Title': 'Master 2 MIAGE – International Track in EIT Fintech / Data Science',
+                    'exp1Title': 'Master 2 MIAGE – Uluslararası EIT Fintech / Veri Bilimi',
                     'exp1Company': 'ISTIC, Rennes Üniversitesi (Ortalama: 15.85/20)',
                     'exp1Date': '09/2025 – 09/2027 (Beklenen)',
                     'exp1Li1': '<span class="highlight-keyword">Makine Öğrenmesi</span> & <span class="highlight-keyword">Veri Madenciliği</span>',
@@ -848,35 +710,37 @@
                     'expRedTitle': 'REDINEST Impact Labs',
                     'expRedCompany': 'ELTE Üniversitesi (Budapeşte, Macaristan)',
                     'expRedDate': '03/2026 – 06/2026',
-                    'expRedDesc': 'Şehirlerin dijital dönüşümü ve toplumsal katılım odaklı uluslararası hibrit inovasyon programı (Madrid, Belgrad, Évora, Rennes).',
+                    'expRedLi1': 'Şehirlerin dijital dönüşümü ve toplumsal katılım üzerine hibrit inovasyon programı.',
+                    'expRedLi2': 'Uluslararası bir ekiple (Madrid, Belgrad, Évora, Rennes) gerçek dünya projeleri üzerinde çalışma.',
+                    'expVolTitle': 'Gönüllü (Öğrenci Gıda Dağıtımı)',
+                    'expVolCompany': 'EpiFree Rennes (Rennes, Fransa)',
+                    'expVolDate': '02/2026 – Günümüz',
+                    'expVolLi1': 'Haftalık gıda dağıtımlarında aktif görev alma: stant yönetimi ve öğrencilere destek.',
+                    'exp2Title': 'Yazılım Geliştirici (Future Driver)',
+                    'exp2Company': 'TürkTraktör',
+                    'exp2Date': '12/2023 – 05/2024',
+                    'exp2Li1': 'Future Driver yeni mezun programına seçildim.',
+                    'exp2Li2': 'Fonksiyonel analizlere uygun olarak SAP verilerini çeken ve filtreleyen etkileşimli <span class="highlight-keyword">ABAP</span> ALV raporları geliştirdim.',
+                    'exp2Li3': '<span class="highlight-keyword">Agile</span> metodolojisiyle operasyonel iş süreçlerini otomatize ettim.',
                     'exp3Title': 'Bilgisayar Mühendisliği Lisans',
                     'exp3Company': 'TOBB Ekonomi ve Teknoloji Üniversitesi',
                     'exp3Date': '08/2019 – 09/2023',
                     'exp3Li1': 'Yapay Zeka & Makine Öğrenmesi',
-                    'exp3Li2': 'Veritabanı Sistemleri, Veri Yapıları & Algoritmalar',
-                    'expVolTitle': 'Gönüllü – Öğrenci Gıda Dağıtımı',
-                    'expVolCompany': 'EpiFree Rennes (Rennes, Fransa)',
-                    'expVolDate': '02/2026 – Günümüz',
-                    'expVolDur': 'Devam Ediyor',
-                    'expVolDesc': 'Haftalık dayanışma gıda dağıtımlarında aktif görev alma: stant yönetimi ve öğrencilere destek.',
-                    'exp2Title': 'Yazılım Geliştirici (Future Driver)',
-                    'exp2Company': 'TürkTraktör',
-                    'exp2Date': '12/2023 – 05/2024',
-                    'exp2Li1': 'Fonksiyonel analizlere uygun olarak SAP verilerini çeken ve filtreleyen etkileşimli <span class="highlight-keyword">ABAP</span> ALV raporları geliştirdim.',
-                    'exp2Li2': '<span class="highlight-keyword">Agile</span> metodolojisiyle operasyonel iş süreçlerini otomatize ettim.',
+                    'exp3Li2': 'Veritabanı Sistemleri & Veri Yapıları / Algoritmalar',
                     'exp4Title': 'Veri Bilimi Stajyeri',
                     'exp4Company': 'Ave Bilişim',
                     'exp4Date': '05/2023 – 08/2023',
-                    'exp4Li1': '<span class="highlight-keyword">NLP</span> uygulamaları için <span class="highlight-keyword">Python</span> ve NLTK ile metin ön işleme (tokenizasyon, lemmatizasyon) yaptım.',
-                    'exp4Li2': 'Cucumber ve JUnit ile birim testleri yazdım ve temiz veri setleri teslim ettim.',
+                    'exp4Li1': '<span class="highlight-keyword">NLP</span> uygulamaları için <span class="highlight-keyword">Python</span> ve NLTK ile metin ön işleme (tokenizasyon, lemmatizasyon) ve veri temizliği yaptım.',
+                    'exp4Li2': 'Cucumber ve JUnit ile birim testleri yazdım, dokümantasyonu güncelledim ve temiz veri setleri oluşturdum.',
                     'exp5Title': 'Yazılım Geliştirme Stajyeri',
                     'exp5Company': 'AYDIN Yazılım ve Elektronik Sanayii A.Ş.',
                     'exp5Date': '01/2022 – 04/2022',
-                    'exp5Desc': 'Geliştirici ekibiyle birlikte <span class="highlight-keyword">Java</span> tabanlı bir uygulamanın bakımını ve iyileştirmesini yaptım, kullanıcı hatalarını çözdüm.',
+                    'exp5Li1': 'Geliştirici ekibiyle birlikte <span class="highlight-keyword">Java</span> tabanlı bir uygulamanın bakımını ve iyileştirmesini yaptım, kullanıcı hatalarını çözdüm.',
+                    'exp5Li2': 'Takım içi iletişim ve problem çözme becerilerimi geliştirdim.',
                     'exp6Title': 'Yazılım Geliştirme Stajyeri',
                     'exp6Company': 'ALTAY Bilişim Teknolojileri',
                     'exp6Date': '04/2021 – 08/2021',
-                    'exp6Desc': '<span class="highlight-keyword">C#</span>, ASP.NET Core ve Entity Framework kullanarak ölçeklenebilir mikroservisler ve <span class="highlight-keyword">RESTful API</span>’ler tasarladım.',
+                    'exp6Li1': '<span class="highlight-keyword">C#</span>, ASP.NET Core ve Entity Framework kullanarak ölçeklenebilir mikroservisler ve <span class="highlight-keyword">RESTful API</span>’ler tasarladım.',
                     'projectsTitle': 'Projelerim',
                     'projectsIntro': 'Snowflake üzerinde bulut ELT veri hatlarından dağıtık PySpark modellemeye ve Bloomberg finansal analizlerine kadar Veri Mühendisliği, Makine Öğrenmesi ve FinTech kesişiminde uçtan uca projeler geliştiriyorum.',
                     'moreProjectsTitle': 'Öne Çıkan Projeler',
@@ -897,37 +761,28 @@
                     'proj3Title': 'MOVR VR Web Entegrasyonu',
                     'proj3Desc': '5 kişilik agile ekipte <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span> ve <span class="highlight-keyword">MongoDB</span> kullanarak MOVR web sitesini bir VR uygulamasıyla entegre ettim.',
                     'skillsTitle': 'Teknolojiler & Yetenekler',
-                    'skillsCat1Title': 'Veri Bilimi, ML & Yapay Zeka',
-                    'skillsCat1P1': '⚡ Python, Scikit-learn ve PySpark ile Makine Öğrenmesi ve Dağıtık Büyük Veri modelleme',
+                    'skillsCat1Title': 'Veri Bilimi & Yapay Zeka',
+                    'skillsCat1P1': '⚡ Python, Scikit-learn ve PySpark ile Makine Öğrenmesi ve Büyük Veri modelleme',
                     'skillsCat1P2': '⚡ Üretken Yapay Zeka iş akışları ve NLP veri hatları (LangGraph, OpenAI API, NLTK)',
-                    'skillsCat2Title': 'Veri Mühendisliği, Bulut & FinTech',
-                    'skillsCat2P1': '⚡ Bulut ELT veri hatları ve Medallion mimarisi (Snowflake, dbt, Talend)',
-                    'skillsCat2P2': '⚡ SQL analitiği, BI panoları ve finansal analiz (PostgreSQL, Power BI, Bloomberg)',
+                    'skillsCat2Title': 'Veri Mühendisliği & Backend',
+                    'skillsCat2P1': '⚡ Modern ELT veri hatları ve Medallion mimarisi (Snowflake, dbt, Talend)',
+                    'skillsCat2P2': '⚡ İlişkisel veritabanları ve backend API geliştirme (SQL, PostgreSQL, Java, C#, Flask)',
                     'contactTitle': 'Benimle İletişime Geçin',
-                    'contactIntro': 'Mart 2027 itibarıyla FinTech, Veri Bilimi veya Veri Mühendisliği alanlarında 6 aylık bitirme stajı fırsatlarına açığım (Fransa genelinde taşınmaya uygunum). İletişime geçmekten çekinmeyin!',
+                    'contactIntro': 'Mart 2027 itibarıyla Veri Bilimi, Veri Mühendisliği veya FinTech alanlarında 6 aylık bitirme stajı fırsatlarına açığım (Fransa genelinde taşınmaya uygunum). İletişime geçmekten çekinmeyin!',
                     'contactButton': 'dogayalcn@gmail.com'
                 },
                 'fr': {
                     'navAbout': 'À propos', 'navExperience': 'Expérience', 'navProjects': 'Projets', 'navSkills': 'Compétences', 'navContact': 'Contact',
                     'heroName': 'Doğa Yalçın',
-                    'heroTagline': 'Étudiante en Master 2 Fintech 📊 Recherche un stage de fin d’études (Mars 2027)',
+                    'heroTagline': 'Étudiante en Master 2 EIT Fintech & Data Science 📊 Recherche un stage de fin d’études (Mars 2027)',
                     'heroButton': 'Voir mes projets',
                     'aboutTitle': 'À propos de moi',
                     'aboutGreeting': "Bonjour, je suis Doğa",
-                    'aboutP1': 'Étudiante en Master 2 en Technologies Financières (FinTech) à l’Université de Rennes, je recherche un <span class="highlight-keyword">stage de fin d’études de 6 mois dès mars 2027</span> (mobilité sur toute la France).',
-                    'aboutP2': 'Expérimentée en <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span> et développement logiciel orienté données avec Python et SQL, je conçois des solutions data robustes et orientées impact. Découvrez mes réalisations ci-dessous et n’hésitez pas à me contacter !',
+                    'aboutP1': 'Étudiante en Master 2 MIAGE (Parcours International EIT Fintech / Data Science) à l’Université de Rennes, je recherche un <span class="highlight-keyword">stage de fin d’études de 6 mois dès mars 2027</span> (mobilité sur toute la France).',
+                    'aboutP2': 'Expérimentée en <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span> et développement logiciel avec Python et SQL, je conçois des solutions data robustes et orientées impact. Découvrez mes réalisations ci-dessous et n’hésitez pas à me contacter !',
                     'aboutButton': 'Voir mon CV',
                     'resumeLink': 'https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link',
                     'experienceTitle': 'Formation, Expérience & Bénévolat',
-                    'colEduTitle': 'Formation & Programmes',
-                    'colExpTitle': 'Expérience & Bénévolat',
-                    'badgeMaster': 'Master',
-                    'badgeProg': 'Programme Académique',
-                    'badgeBsc': 'Licence',
-                    'badgeWork': 'Programme Jeunes Diplômés',
-                    'badgeInt1': 'Stage',
-                    'badgeInt2': 'Stage',
-                    'badgeInt3': 'Stage',
                     'exp1Title': 'Master 2 MIAGE – Parcours International EIT Fintech / Data Science',
                     'exp1Company': 'ISTIC, Université de Rennes (Moyenne : 15,85/20)',
                     'exp1Date': '09/2025 – 09/2027 (diplôme prévu)',
@@ -937,35 +792,37 @@
                     'expRedTitle': 'REDINEST Impact Labs',
                     'expRedCompany': 'Université ELTE (Budapest, Hongrie)',
                     'expRedDate': '03/2026 – 06/2026',
-                    'expRedDesc': 'Programme international hybride d’innovation (Madrid, Belgrade, Évora, Rennes) sur la transformation numérique urbaine et l’engagement citoyen.',
+                    'expRedLi1': 'Programme hybride sur la transformation numérique des villes et l’engagement citoyen.',
+                    'expRedLi2': 'Travail en équipe internationale (Madrid, Belgrade, Évora, Rennes) sur des projets concrets.',
+                    'expVolTitle': 'Bénévole (Distributions alimentaires pour étudiants)',
+                    'expVolCompany': 'EpiFree Rennes (Rennes, France)',
+                    'expVolDate': '02/2026 – Présent',
+                    'expVolLi1': 'Participation active aux distributions hebdomadaires : tenue de stand et accompagnement des étudiants.',
+                    'exp2Title': 'Développeuse Logiciel (Future Driver)',
+                    'exp2Company': 'TürkTraktor',
+                    'exp2Date': '12/2023 – 05/2024',
+                    'exp2Li1': 'Sélectionnée pour le programme jeunes diplômés Future Driver.',
+                    'exp2Li2': 'Développement de rapports interactifs ALV (<span class="highlight-keyword">ABAP</span>) pour l’extraction et le filtrage de données SAP.',
+                    'exp2Li3': 'Automatisation des processus métiers opérationnels en environnement <span class="highlight-keyword">Agile</span>.',
                     'exp3Title': 'Licence en Informatique',
                     'exp3Company': 'Université d’Économie et de Technologie TOBB',
                     'exp3Date': '08/2019 – 09/2023',
                     'exp3Li1': 'Intelligence Artificielle & Machine Learning',
-                    'exp3Li2': 'Systèmes de Bases de Données, Structures de Données & Algorithmes',
-                    'expVolTitle': 'Bénévole – Distributions alimentaires étudiantes',
-                    'expVolCompany': 'EpiFree Rennes (Rennes, France)',
-                    'expVolDate': '02/2026 – Présent',
-                    'expVolDur': 'En cours',
-                    'expVolDesc': 'Participation active aux distributions alimentaires solidaires hebdomadaires : tenue de stand et accompagnement des étudiants.',
-                    'exp2Title': 'Développeuse Logiciel (Future Driver)',
-                    'exp2Company': 'TürkTraktor',
-                    'exp2Date': '12/2023 – 05/2024',
-                    'exp2Li1': 'Développement de rapports interactifs ALV (<span class="highlight-keyword">ABAP</span>) pour l’extraction et le filtrage de données SAP.',
-                    'exp2Li2': 'Automatisation des processus métiers opérationnels en environnement <span class="highlight-keyword">Agile</span>.',
+                    'exp3Li2': 'Systèmes de Bases de Données & Structures de Données / Algorithmes',
                     'exp4Title': 'Stagiaire en Data Science',
                     'exp4Company': 'Ave Informatics',
                     'exp4Date': '05/2023 – 08/2023',
-                    'exp4Li1': 'Prétraitement et nettoyage de données textuelles (tokenisation, lemmatisation) pour le <span class="highlight-keyword">NLP</span> avec <span class="highlight-keyword">Python</span> et NLTK.',
-                    'exp4Li2': 'Réalisation de tests unitaires (Cucumber, JUnit) et livraison de jeux de données propres.',
+                    'exp4Li1': 'Prétraitement et nettoyage de données textuelles (tokenisation, lemmatisation) pour des projets <span class="highlight-keyword">NLP</span> avec <span class="highlight-keyword">Python</span> et NLTK.',
+                    'exp4Li2': 'Réalisation de tests unitaires (Cucumber, JUnit), mise à jour documentaire et livraison de jeux de données propres.',
                     'exp5Title': 'Stagiaire en Développement Logiciel',
                     'exp5Company': 'AYDIN Software and Electronics Industries Inc.',
                     'exp5Date': '01/2022 – 04/2022',
-                    'exp5Desc': 'Maintenance et amélioration d’une application <span class="highlight-keyword">Java</span> en équipe, et résolution des anomalies signalées par les utilisateurs.',
+                    'exp5Li1': 'Maintenance et amélioration d’une application <span class="highlight-keyword">Java</span> en équipe, et résolution des anomalies signalées par les utilisateurs.',
+                    'exp5Li2': 'Renforcement des compétences de résolution de problèmes et de collaboration.',
                     'exp6Title': 'Stagiaire en Développement Logiciel',
                     'exp6Company': 'ALTAY Information Technologies',
                     'exp6Date': '04/2021 – 08/2021',
-                    'exp6Desc': 'Conception et implémentation d’<span class="highlight-keyword">API RESTful</span> et de microservices évolutifs avec <span class="highlight-keyword">C#</span>, ASP.NET Core et Entity Framework.',
+                    'exp6Li1': 'Conception et implémentation d’<span class="highlight-keyword">API RESTful</span> et de microservices évolutifs avec <span class="highlight-keyword">C#</span>, ASP.NET Core et Entity Framework.',
                     'projectsTitle': 'Mes Projets',
                     'projectsIntro': 'Je développe des projets complets alliant Data Engineering, Machine Learning et FinTech — des pipelines ELT sur Snowflake à la modélisation distribuée avec PySpark et à l’analyse financière sur Bloomberg.',
                     'moreProjectsTitle': 'Projets Phares',
@@ -986,14 +843,14 @@
                     'proj3Title': 'Intégration Web VR MOVR',
                     'proj3Desc': 'Contribution en équipe agile (5 personnes) à l’intégration du site web MOVR avec une application VR via <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span> et <span class="highlight-keyword">MongoDB</span>.',
                     'skillsTitle': 'Technologies & Compétences',
-                    'skillsCat1Title': 'Data Science, ML & IA',
-                    'skillsCat1P1': '⚡ Modélisation Machine Learning & Big Data distribué (Python, Scikit-learn, PySpark)',
+                    'skillsCat1Title': 'Data Science & IA',
+                    'skillsCat1P1': '⚡ Modélisation Machine Learning & Big Data avec Python, Scikit-learn et PySpark',
                     'skillsCat1P2': '⚡ Workflows IA Générative & pipelines NLP (LangGraph, OpenAI API, NLTK)',
-                    'skillsCat2Title': 'Data Engineering, Cloud & FinTech',
-                    'skillsCat2P1': '⚡ Pipelines ELT Cloud & architecture Médaillon (Snowflake, dbt, Talend)',
-                    'skillsCat2P2': '⚡ Analytique SQL, tableaux de bord BI & analyse financière (PostgreSQL, Power BI, Bloomberg)',
+                    'skillsCat2Title': 'Data Engineering & Backend',
+                    'skillsCat2P1': '⚡ Pipelines ELT modernes & architecture Médaillon (Snowflake, dbt, Talend)',
+                    'skillsCat2P2': '⚡ Bases de données relationnelles & API backend (SQL, PostgreSQL, Java, C#, Flask)',
                     'contactTitle': 'Me Contacter',
-                    'contactIntro': 'Je suis à la recherche d’un stage de fin d’études de 6 mois en FinTech, Data Science ou Data Engineering dès mars 2027 (mobilité sur toute la France). N’hésitez pas à me contacter !',
+                    'contactIntro': 'Je suis à la recherche d’un stage de fin d’études de 6 mois en Data Science, Data Engineering ou FinTech dès mars 2027 (mobilité sur toute la France). N’hésitez pas à me contacter !',
                     'contactButton': 'dogayalcn@gmail.com'
                 }
             };
