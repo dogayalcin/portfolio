@@ -140,7 +140,7 @@
         /* --- HERO --- */
         #hero { display: flex; align-items: center; justify-content: center; min-height: 50vh; text-align: center; padding-top: 6rem; padding-bottom: 2rem; }
         #hero h1 { font-size: clamp(3rem, 10vw, 6rem); margin-bottom: 1.5rem; background: var(--accent-gradient); background-size: 200% 200%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: gradient-animation 5s ease infinite; }
-        #hero .tagline { font-size: 1.2rem; max-width: 680px; margin: 0 auto 1.5rem auto; color: var(--text-secondary); font-weight: 400; }
+        #hero .tagline { font-size: 1.2rem; max-width: 720px; margin: 0 auto 1.5rem auto; color: var(--text-secondary); font-weight: 400; }
 
         /* --- BUTTON --- */
         .btn { display: inline-block; padding: 14px 32px; background: var(--accent-gradient); color: #fff; border-radius: 30px; font-family: var(--font-body); font-weight: 500; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(211, 161, 163, 0.0); border: 0; }
@@ -267,7 +267,7 @@
         <section id="hero">
             <div class="container fade-in">
                 <h1 data-key="heroName">Doğa Yalçın</h1>
-                <p class="tagline" data-key="heroTagline">M2 Fintech & Data Science Student 📊 Seeking a 6-Month Internship (March 2027)</p>
+                <p class="tagline" data-key="heroTagline">M2 EIT Fintech & Data Science Student 📊 Seeking a 6-Month Internship (March 2027)</p>
                 <a href="#projects" class="btn" data-key="heroButton">View My Work</a>
             </div>
         </section>
@@ -279,7 +279,7 @@
                     <img src="images/me.jpg" alt="Photo of Doga Yalcin">
                     <div class="about-text">
                         <h3 data-key="aboutGreeting">Hi, I'm Doğa</h3>
-                        <p data-key="aboutP1">I’m a final-year Master’s (M2) student in the International EIT Fintech / Data Science track at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).</p>
+                        <p data-key="aboutP1">I’m a final-year Master’s (M2) student in the Master MIAGE – International Track in EIT Fintech / Data Science at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).</p>
                         <p data-key="aboutP2">With hands-on experience in <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span>, and software development using Python and SQL, I focus on turning complex data into impactful, production-ready solutions. Explore my projects below and feel free to reach out!</p>
                         <a href="https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer" data-key="aboutButton">View My Resume</a>
                     </div>
@@ -289,20 +289,21 @@
 
         <section id="experience" class="fade-in">
             <div class="container">
-                <h2 data-key="experienceTitle">Education & Work Experience</h2>
+                <h2 data-key="experienceTitle">Education, Experience & Volunteering</h2>
                 <div class="timeline">
-                    <!-- 1: Master -->
+                    <!-- 1: Master M2 -->
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; color: var(--accent-color-2);">
                                 <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
                                 <path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"></path>
                             </svg>
-                            <h3><span data-key="exp1Title">Master MIAGE, International Track in EIT Fintech / Data Science</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp1Company">ISTIC, University of Rennes</span></h3>
+                            <h3><span data-key="exp1Title">Master 2 MIAGE – International Track in EIT Fintech / Data Science</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp1Company">ISTIC, University of Rennes (GPA: 15.85/20)</span></h3>
                             <p class="date" data-key="exp1Date">09/2025 – 09/2027 (Expected)</p>
                             <ul>
-                                <li data-key="exp1Li1">Machine Learning, Data Mining & Cloud / Big Data</li>
-                                <li data-key="exp1Li2">Fintech Case Studies & Quantitative Analysis</li>
+                                <li data-key="exp1Li1"><span class="highlight-keyword">Machine Learning</span> & <span class="highlight-keyword">Data Mining</span></li>
+                                <li data-key="exp1Li2"><span class="highlight-keyword">Cloud & Big Data</span> Architectures</li>
+                                <li data-key="exp1Li3"><span class="highlight-keyword">Fintech Case Studies</span> & Quantitative Finance</li>
                             </ul>
                         </div>
                     </div>
@@ -324,7 +325,21 @@
                         </div>
                     </div>
 
-                    <!-- 3: TurkTraktor -->
+                    <!-- 3: Volunteering (EpiFree) -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; color: var(--accent-color-2);">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                            <h3><span data-key="expVolTitle">Volunteer (Student Food Distribution)</span><br><span style="font-size: smaller; font-style: italic;" data-key="expVolCompany">EpiFree Rennes (Rennes, France)</span></h3>
+                            <p class="date" data-key="expVolDate">02/2026 – Present</p>
+                            <ul>
+                                <li data-key="expVolLi1">Actively participated in weekly food distributions: managed stands and assisted students.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 4: TurkTraktor -->
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <h3><span data-key="exp2Title">Software Developer (Future Driver)</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp2Company">TürkTraktor</span></h3>
@@ -337,7 +352,7 @@
                         </div>
                     </div>
 
-                    <!-- 4: TOBB ETU -->
+                    <!-- 5: TOBB ETU -->
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 0.5rem; color: var(--accent-color-2);">
@@ -348,12 +363,12 @@
                             <p class="date" data-key="exp3Date">08/2019 – 09/2023</p>
                             <ul>
                                 <li data-key="exp3Li1">Artificial Intelligence & Machine Learning</li>
-                                <li data-key="exp3Li2">Database Systems & Algorithms</li>
+                                <li data-key="exp3Li2">Database Systems & Data Structures / Algorithms</li>
                             </ul>
                         </div>
                     </div>
 
-                    <!-- 5: Ave Informatics -->
+                    <!-- 6: Ave Informatics -->
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <h3><span data-key="exp4Title">Data Science Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp4Company">Ave Informatics</span></h3>
@@ -365,7 +380,7 @@
                         </div>
                     </div>
 
-                    <!-- 6: AYDIN -->
+                    <!-- 7: AYDIN -->
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <h3><span data-key="exp5Title">Software Development Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp5Company">AYDIN Software and Electronics Industries Inc.</span></h3>
@@ -377,7 +392,7 @@
                         </div>
                     </div>
 
-                    <!-- 7: ALTAY -->
+                    <!-- 8: ALTAY -->
                     <div class="timeline-item">
                         <div class="timeline-content">
                             <h3><span data-key="exp6Title">Software Development Intern</span><br><span style="font-size: smaller; font-style: italic;" data-key="exp6Company">ALTAY Information Technologies</span></h3>
@@ -403,13 +418,13 @@
                     </div>
                 </div>
 
-                <h3 class="more-projects-title" data-key="moreProjectsTitle">Featured Work</h3>
+                <h3 class="more-projects-title" data-key="moreProjectsTitle">Featured Projects</h3>
                 <div class="project-grid">
                     <!-- Project 1: Snowflake ELT -->
                     <div class="project-card">
                         <div class="project-card-content">
                             <h3 data-key="projEltTitle">Loan Tracking ELT Pipeline</h3>
-                            <p data-key="projEltDesc">Implemented a Medallion architecture (Bronze/Silver/Gold) on <span class="highlight-keyword">Snowflake</span>: ingested multi-source data via <span class="highlight-keyword">Talend</span> and built modular <span class="highlight-keyword">dbt</span> transformations in <span class="highlight-keyword">SQL</span>.</p>
+                            <p data-key="projEltDesc">Implemented a Medallion architecture (Bronze/Silver/Gold) on <span class="highlight-keyword">Snowflake</span>: ingested 9 CSV sources via <span class="highlight-keyword">Talend</span> and built modular <span class="highlight-keyword">dbt</span> transformations in <span class="highlight-keyword">SQL</span>.</p>
                         </div>
                     </div>
 
@@ -417,7 +432,7 @@
                     <div class="project-card">
                         <div class="project-card-content">
                             <h3 data-key="proj2Title">Footballers Market Value Predictor</h3>
-                            <p data-key="proj2Desc">Built a distributed big data pipeline using <span class="highlight-keyword">PySpark</span> and <span class="highlight-keyword">MLlib</span>: performed outlier/missing value handling and trained a <span class="highlight-keyword">Random Forest</span> regression model ($R^2 = 0.75$).</p>
+                            <p data-key="proj2Desc">Built a distributed big data pipeline using <span class="highlight-keyword">PySpark</span> and <span class="highlight-keyword">MLlib</span>: performed outlier/missing value handling and trained a <span class="highlight-keyword">Random Forest</span> regression model (R² = 0.75).</p>
                             <div class="project-links">
                                 <a href="https://github.com/dogayalcin/Market-Value-Prediction-with-Big-Data-Techniques" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
                             </div>
@@ -462,6 +477,22 @@
                             <div class="project-links">
                                 <a href="https://www.kaggle.com/code/dogayalcin/imdb-prediction" target="_blank" rel="noopener noreferrer"><i class="fab fa-kaggle"></i> Kaggle</a>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 7: Restaurant Ordering API -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 data-key="proj1Title">Restaurant Ordering API</h3>
+                            <p data-key="proj1Desc">Developed a RESTful API for managing restaurant orders using <span class="highlight-keyword">Java Spring Boot</span> and <span class="highlight-keyword">PostgreSQL</span>, implementing CRUD operations, DTO handling, and JPA repositories.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 8: MOVR -->
+                    <div class="project-card">
+                        <div class="project-card-content">
+                            <h3 data-key="proj3Title">MOVR VR Web Integration</h3>
+                            <p data-key="proj3Desc">Contributed in a 5-member agile team to integrate the MOVR web platform with a VR application using <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span>, and <span class="highlight-keyword">MongoDB</span>.</p>
                         </div>
                     </div>
                 </div>
@@ -579,25 +610,30 @@
                 'en': {
                     'navAbout': 'About', 'navExperience': 'Experience', 'navProjects': 'Projects', 'navSkills': 'Skills', 'navContact': 'Contact',
                     'heroName': 'Doğa Yalçın',
-                    'heroTagline': 'M2 Fintech & Data Science Student 📊 Seeking a 6-Month Internship (March 2027)',
+                    'heroTagline': 'M2 EIT Fintech & Data Science Student 📊 Seeking a 6-Month Internship (March 2027)',
                     'heroButton': 'View My Work',
                     'aboutTitle': 'About Me',
                     'aboutGreeting': "Hi, I'm Doğa",
-                    'aboutP1': 'I’m a final-year Master’s (M2) student in the International EIT Fintech / Data Science track at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).',
+                    'aboutP1': 'I’m a final-year Master’s (M2) student in the Master MIAGE – International Track in EIT Fintech / Data Science at the University of Rennes, seeking a <span class="highlight-keyword">6-month graduation internship starting March 2027</span> (open to relocation across France).',
                     'aboutP2': 'With hands-on experience in <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span>, and software development using Python and SQL, I focus on turning complex data into impactful, production-ready solutions. Explore my projects below and feel free to reach out!',
                     'aboutButton': 'View My Resume',
                     'resumeLink': 'https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link',
-                    'experienceTitle': 'Education & Work Experience',
-                    'exp1Title': 'Master MIAGE, International Track in EIT Fintech / Data Science',
-                    'exp1Company': 'ISTIC, University of Rennes',
+                    'experienceTitle': 'Education, Experience & Volunteering',
+                    'exp1Title': 'Master 2 MIAGE – International Track in EIT Fintech / Data Science',
+                    'exp1Company': 'ISTIC, University of Rennes (GPA: 15.85/20)',
                     'exp1Date': '09/2025 – 09/2027 (Expected)',
-                    'exp1Li1': 'Machine Learning, Data Mining & Cloud / Big Data',
-                    'exp1Li2': 'Fintech Case Studies & Quantitative Analysis',
+                    'exp1Li1': '<span class="highlight-keyword">Machine Learning</span> & <span class="highlight-keyword">Data Mining</span>',
+                    'exp1Li2': '<span class="highlight-keyword">Cloud & Big Data</span> Architectures',
+                    'exp1Li3': '<span class="highlight-keyword">Fintech Case Studies</span> & Quantitative Finance',
                     'expRedTitle': 'REDINEST Impact Labs',
                     'expRedCompany': 'ELTE University (Budapest, Hungary)',
                     'expRedDate': '03/2026 – 06/2026',
                     'expRedLi1': 'Hybrid innovation program on urban digital transformation and civic engagement.',
                     'expRedLi2': 'Collaborated in an international team (Madrid, Belgrade, Évora, Rennes) on real-world challenges.',
+                    'expVolTitle': 'Volunteer (Student Food Distribution)',
+                    'expVolCompany': 'EpiFree Rennes (Rennes, France)',
+                    'expVolDate': '02/2026 – Present',
+                    'expVolLi1': 'Actively participated in weekly food distributions: managed stands and assisted students.',
                     'exp2Title': 'Software Developer (Future Driver)',
                     'exp2Company': 'TürkTraktor',
                     'exp2Date': '12/2023 – 05/2024',
@@ -608,7 +644,7 @@
                     'exp3Company': 'TOBB University of Economics and Technology',
                     'exp3Date': '08/2019 – 09/2023',
                     'exp3Li1': 'Artificial Intelligence & Machine Learning',
-                    'exp3Li2': 'Database Systems & Algorithms',
+                    'exp3Li2': 'Database Systems & Data Structures / Algorithms',
                     'exp4Title': 'Data Science Intern',
                     'exp4Company': 'Ave Informatics',
                     'exp4Date': '05/2023 – 08/2023',
@@ -625,11 +661,11 @@
                     'exp6Li1': 'Designed and implemented <span class="highlight-keyword">RESTful APIs</span> and scalable microservices using <span class="highlight-keyword">C#</span>, ASP.NET Core, and Entity Framework.',
                     'projectsTitle': 'My Projects',
                     'projectsIntro': 'I continuously build end-to-end projects bridging Data Engineering, Machine Learning, and FinTech—from cloud ELT pipelines on Snowflake to distributed PySpark modeling and Bloomberg financial analysis.',
-                    'moreProjectsTitle': 'Featured Work',
+                    'moreProjectsTitle': 'Featured Projects',
                     'projEltTitle': 'Loan Tracking ELT Pipeline',
-                    'projEltDesc': 'Implemented a Medallion architecture (Bronze/Silver/Gold) on <span class="highlight-keyword">Snowflake</span>: ingested multi-source data via <span class="highlight-keyword">Talend</span> and built modular <span class="highlight-keyword">dbt</span> transformations in <span class="highlight-keyword">SQL</span>.',
+                    'projEltDesc': 'Implemented a Medallion architecture (Bronze/Silver/Gold) on <span class="highlight-keyword">Snowflake</span>: ingested 9 CSV sources via <span class="highlight-keyword">Talend</span> and built modular <span class="highlight-keyword">dbt</span> transformations in <span class="highlight-keyword">SQL</span>.',
                     'proj2Title': 'Footballers Market Value Predictor',
-                    'proj2Desc': 'Built a distributed big data pipeline using <span class="highlight-keyword">PySpark</span> and <span class="highlight-keyword">MLlib</span>: performed outlier/missing value handling and trained a <span class="highlight-keyword">Random Forest</span> regression model ($R^2 = 0.75$).',
+                    'proj2Desc': 'Built a distributed big data pipeline using <span class="highlight-keyword">PySpark</span> and <span class="highlight-keyword">MLlib</span>: performed outlier/missing value handling and trained a <span class="highlight-keyword">Random Forest</span> regression model (R² = 0.75).',
                     'projFinTitle': 'Financial Analysis of Netflix Stock',
                     'projFinDesc': 'Conducted comprehensive financial and non-financial equity analysis using <span class="highlight-keyword">Bloomberg Terminal</span> (margins, valuation multiples, governance, and <span class="highlight-keyword">ESG</span>) to formulate investment recommendations.',
                     'proj6Title': 'AI Story Generation System',
@@ -638,6 +674,10 @@
                     'proj5Desc': 'Led backend development in a 3-person team: designed relational <span class="highlight-keyword">SQL</span> schemas on <span class="highlight-keyword">PostgreSQL</span> and built REST endpoints with <span class="highlight-keyword">Python</span> and <span class="highlight-keyword">Flask</span>.',
                     'proj4Title': 'IMDB Score Predictor',
                     'proj4Desc': 'Performed exploratory data analysis and trained <span class="highlight-keyword">Machine Learning</span> models (Linear Regression, Random Forest, KNN) using <span class="highlight-keyword">Python</span> and <span class="highlight-keyword">scikit-learn</span>.',
+                    'proj1Title': 'Restaurant Ordering API',
+                    'proj1Desc': 'Developed a RESTful API for managing restaurant orders using <span class="highlight-keyword">Java Spring Boot</span> and <span class="highlight-keyword">PostgreSQL</span>, implementing CRUD operations, DTO handling, and JPA repositories.',
+                    'proj3Title': 'MOVR VR Web Integration',
+                    'proj3Desc': 'Contributed in a 5-member agile team to integrate the MOVR web platform with a VR application using <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span>, and <span class="highlight-keyword">MongoDB</span>.',
                     'skillsTitle': 'Technologies & Skills',
                     'skillsCat1Title': 'Data Science & AI',
                     'skillsCat1P1': '⚡ Machine Learning & Big Data modeling with Python, Scikit-learn, and PySpark',
@@ -652,25 +692,30 @@
                 'tr': {
                     'navAbout': 'Hakkımda', 'navExperience': 'Deneyim', 'navProjects': 'Projeler', 'navSkills': 'Yetenekler', 'navContact': 'İletişim',
                     'heroName': 'Doğa Yalçın',
-                    'heroTagline': 'Fintech & Veri Bilimi Yüksek Lisans Öğrencisi 📊 Mart 2027 Uzun Dönem Staj Arayışında',
+                    'heroTagline': 'M2 EIT Fintech & Veri Bilimi Yüksek Lisans Öğrencisi 📊 Mart 2027 Uzun Dönem Staj Arayışında',
                     'heroButton': 'Projelerimi Gör',
                     'aboutTitle': 'Hakkımda',
                     'aboutGreeting': 'Merhaba, ben Doğa',
-                    'aboutP1': 'Rennes Üniversitesi Uluslararası EIT Fintech / Veri Bilimi yüksek lisans (M2) son sınıf öğrencisiyim. <span class="highlight-keyword">Mart 2027 itibarıyla 6 aylık bitirme stajı</span> arıyorum (Fransa genelinde taşınmaya açığım).',
+                    'aboutP1': 'Rennes Üniversitesi Master MIAGE – Uluslararası EIT Fintech / Veri Bilimi yüksek lisans (M2) son sınıf öğrencisiyim. <span class="highlight-keyword">Mart 2027 itibarıyla 6 aylık bitirme stajı</span> arıyorum (Fransa genelinde taşınmaya açığım).',
                     'aboutP2': 'Python ve SQL kullanarak <span class="highlight-keyword">Makine Öğrenmesi</span>, <span class="highlight-keyword">Veri Mühendisliği (ETL/ELT)</span> ve yazılım geliştirme alanlarında edindiğim tecrübeyle veriden somut ve ölçeklenebilir çözümler üretmeye odaklanıyorum. Projelerimi inceleyebilir ve benimle iletişime geçebilirsiniz!',
                     'aboutButton': 'Özgeçmişimi Görüntüle',
                     'resumeLink': 'https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link',
-                    'experienceTitle': 'Eğitim & İş Deneyimi',
-                    'exp1Title': 'Master MIAGE, Uluslararası EIT Fintech / Veri Bilimi',
-                    'exp1Company': 'ISTIC, Rennes Üniversitesi',
+                    'experienceTitle': 'Eğitim, İş Deneyimi & Gönüllülük',
+                    'exp1Title': 'Master 2 MIAGE – Uluslararası EIT Fintech / Veri Bilimi',
+                    'exp1Company': 'ISTIC, Rennes Üniversitesi (Ortalama: 15.85/20)',
                     'exp1Date': '09/2025 – 09/2027 (Beklenen)',
-                    'exp1Li1': 'Makine Öğrenmesi, Veri Madenciliği & Bulut / Büyük Veri',
-                    'exp1Li2': 'Fintech Vaka Analizleri & Kantitatif Analiz',
+                    'exp1Li1': '<span class="highlight-keyword">Makine Öğrenmesi</span> & <span class="highlight-keyword">Veri Madenciliği</span>',
+                    'exp1Li2': '<span class="highlight-keyword">Bulut & Büyük Veri</span> Mimarileri',
+                    'exp1Li3': '<span class="highlight-keyword">Fintech Vaka Analizleri</span> & Kantitatif Finans',
                     'expRedTitle': 'REDINEST Impact Labs',
                     'expRedCompany': 'ELTE Üniversitesi (Budapeşte, Macaristan)',
                     'expRedDate': '03/2026 – 06/2026',
                     'expRedLi1': 'Şehirlerin dijital dönüşümü ve toplumsal katılım üzerine hibrit inovasyon programı.',
                     'expRedLi2': 'Uluslararası bir ekiple (Madrid, Belgrad, Évora, Rennes) gerçek dünya projeleri üzerinde çalışma.',
+                    'expVolTitle': 'Gönüllü (Öğrenci Gıda Dağıtımı)',
+                    'expVolCompany': 'EpiFree Rennes (Rennes, Fransa)',
+                    'expVolDate': '02/2026 – Günümüz',
+                    'expVolLi1': 'Haftalık gıda dağıtımlarında aktif görev alma: stant yönetimi ve öğrencilere destek.',
                     'exp2Title': 'Yazılım Geliştirici (Future Driver)',
                     'exp2Company': 'TürkTraktör',
                     'exp2Date': '12/2023 – 05/2024',
@@ -681,7 +726,7 @@
                     'exp3Company': 'TOBB Ekonomi ve Teknoloji Üniversitesi',
                     'exp3Date': '08/2019 – 09/2023',
                     'exp3Li1': 'Yapay Zeka & Makine Öğrenmesi',
-                    'exp3Li2': 'Veritabanı Sistemleri & Algoritmalar',
+                    'exp3Li2': 'Veritabanı Sistemleri & Veri Yapıları / Algoritmalar',
                     'exp4Title': 'Veri Bilimi Stajyeri',
                     'exp4Company': 'Ave Bilişim',
                     'exp4Date': '05/2023 – 08/2023',
@@ -698,11 +743,11 @@
                     'exp6Li1': '<span class="highlight-keyword">C#</span>, ASP.NET Core ve Entity Framework kullanarak ölçeklenebilir mikroservisler ve <span class="highlight-keyword">RESTful API</span>’ler tasarladım.',
                     'projectsTitle': 'Projelerim',
                     'projectsIntro': 'Snowflake üzerinde bulut ELT veri hatlarından dağıtık PySpark modellemeye ve Bloomberg finansal analizlerine kadar Veri Mühendisliği, Makine Öğrenmesi ve FinTech kesişiminde uçtan uca projeler geliştiriyorum.',
-                    'moreProjectsTitle': 'Öne Çıkan Çalışmalar',
+                    'moreProjectsTitle': 'Öne Çıkan Projeler',
                     'projEltTitle': 'Kredi Takip ELT Veri Hattı',
-                    'projEltDesc': '<span class="highlight-keyword">Snowflake</span> üzerinde Medallion (Bronze/Silver/Gold) mimarisi kurguladım: <span class="highlight-keyword">Talend</span> ile veri aktarımı ve <span class="highlight-keyword">dbt</span> / <span class="highlight-keyword">SQL</span> ile modüler veri dönüşümleri gerçekleştirdim.',
+                    'projEltDesc': '<span class="highlight-keyword">Snowflake</span> üzerinde Medallion (Bronze/Silver/Gold) mimarisi kurguladım: <span class="highlight-keyword">Talend</span> ile 9 CSV kaynağından veri aktarımı ve <span class="highlight-keyword">dbt</span> / <span class="highlight-keyword">SQL</span> ile modüler dönüşümler gerçekleştirdim.',
                     'proj2Title': 'Futbolcu Piyasa Değeri Tahmincisi',
-                    'proj2Desc': '<span class="highlight-keyword">PySpark</span> ve <span class="highlight-keyword">MLlib</span> ile dağıtık büyük veri hattı kurdum; aykırı değer temizliği yaparak <span class="highlight-keyword">Random Forest</span> regresyon modeli ($R^2 = 0.75$) eğittim.',
+                    'proj2Desc': '<span class="highlight-keyword">PySpark</span> ve <span class="highlight-keyword">MLlib</span> ile dağıtık büyük veri hattı kurdum; aykırı değer temizliği yaparak <span class="highlight-keyword">Random Forest</span> regresyon modeli (R² = 0.75) eğittim.',
                     'projFinTitle': 'Netflix Hissesi Finansal Analizi',
                     'projFinDesc': '<span class="highlight-keyword">Bloomberg Terminal</span> kullanarak kâr marjları, değerleme çarpanları, kurumsal yönetim ve <span class="highlight-keyword">ESG</span> kriterleri üzerinden kapsamlı finansal analiz ve yatırım önerileri hazırladım.',
                     'proj6Title': 'Yapay Zeka Hikaye Üretim Sistemi',
@@ -711,6 +756,10 @@
                     'proj5Desc': '3 kişilik ekipte backend liderliğini üstlendim; <span class="highlight-keyword">PostgreSQL</span> üzerinde ilişkisel <span class="highlight-keyword">SQL</span> şemaları tasarlayıp <span class="highlight-keyword">Python</span> ve <span class="highlight-keyword">Flask</span> ile API uç noktaları yazdım.',
                     'proj4Title': 'IMDB Puanı Tahmincisi',
                     'proj4Desc': '<span class="highlight-keyword">Python</span> ve <span class="highlight-keyword">scikit-learn</span> kullanarak keşifsel veri analizi yaptım ve film puanlarını tahmin eden <span class="highlight-keyword">Makine Öğrenmesi</span> modelleri (Lineer Regresyon, Random Forest, KNN) eğittim.',
+                    'proj1Title': 'Restoran Sipariş API',
+                    'proj1Desc': '<span class="highlight-keyword">Java Spring Boot</span> ve <span class="highlight-keyword">PostgreSQL</span> kullanarak CRUD işlemleri, DTO yönetimi ve JPA repozitorileri içeren RESTful API geliştirdim.',
+                    'proj3Title': 'MOVR VR Web Entegrasyonu',
+                    'proj3Desc': '5 kişilik agile ekipte <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span> ve <span class="highlight-keyword">MongoDB</span> kullanarak MOVR web sitesini bir VR uygulamasıyla entegre ettim.',
                     'skillsTitle': 'Teknolojiler & Yetenekler',
                     'skillsCat1Title': 'Veri Bilimi & Yapay Zeka',
                     'skillsCat1P1': '⚡ Python, Scikit-learn ve PySpark ile Makine Öğrenmesi ve Büyük Veri modelleme',
@@ -725,7 +774,7 @@
                 'fr': {
                     'navAbout': 'À propos', 'navExperience': 'Expérience', 'navProjects': 'Projets', 'navSkills': 'Compétences', 'navContact': 'Contact',
                     'heroName': 'Doğa Yalçın',
-                    'heroTagline': 'Étudiante en Master 2 Fintech & Data Science 📊 Recherche un stage de fin d’études (Mars 2027)',
+                    'heroTagline': 'Étudiante en Master 2 EIT Fintech & Data Science 📊 Recherche un stage de fin d’études (Mars 2027)',
                     'heroButton': 'Voir mes projets',
                     'aboutTitle': 'À propos de moi',
                     'aboutGreeting': "Bonjour, je suis Doğa",
@@ -733,17 +782,22 @@
                     'aboutP2': 'Expérimentée en <span class="highlight-keyword">Machine Learning</span>, <span class="highlight-keyword">Data Engineering (ETL/ELT)</span> et développement logiciel avec Python et SQL, je conçois des solutions data robustes et orientées impact. Découvrez mes réalisations ci-dessous et n’hésitez pas à me contacter !',
                     'aboutButton': 'Voir mon CV',
                     'resumeLink': 'https://drive.google.com/drive/folders/1iDy02quJmKNGd2x2hrAo9AI6SvBYAbiy?usp=drive_link',
-                    'experienceTitle': 'Formation & Expérience Professionnelle',
-                    'exp1Title': 'Master MIAGE, Parcours International EIT Fintech / Data Science',
-                    'exp1Company': 'ISTIC, Université de Rennes',
+                    'experienceTitle': 'Formation, Expérience & Bénévolat',
+                    'exp1Title': 'Master 2 MIAGE – Parcours International EIT Fintech / Data Science',
+                    'exp1Company': 'ISTIC, Université de Rennes (Moyenne : 15,85/20)',
                     'exp1Date': '09/2025 – 09/2027 (diplôme prévu)',
-                    'exp1Li1': 'Machine Learning, Data Mining & Cloud / Big Data',
-                    'exp1Li2': 'Études de Cas Fintech & Analyse Quantitative',
+                    'exp1Li1': '<span class="highlight-keyword">Machine Learning</span> & <span class="highlight-keyword">Data Mining</span>',
+                    'exp1Li2': 'Architectures <span class="highlight-keyword">Cloud & Big Data</span>',
+                    'exp1Li3': '<span class="highlight-keyword">Études de Cas Fintech</span> & Finance Quantitative',
                     'expRedTitle': 'REDINEST Impact Labs',
                     'expRedCompany': 'Université ELTE (Budapest, Hongrie)',
                     'expRedDate': '03/2026 – 06/2026',
                     'expRedLi1': 'Programme hybride sur la transformation numérique des villes et l’engagement citoyen.',
                     'expRedLi2': 'Travail en équipe internationale (Madrid, Belgrade, Évora, Rennes) sur des projets concrets.',
+                    'expVolTitle': 'Bénévole (Distributions alimentaires pour étudiants)',
+                    'expVolCompany': 'EpiFree Rennes (Rennes, France)',
+                    'expVolDate': '02/2026 – Présent',
+                    'expVolLi1': 'Participation active aux distributions hebdomadaires : tenue de stand et accompagnement des étudiants.',
                     'exp2Title': 'Développeuse Logiciel (Future Driver)',
                     'exp2Company': 'TürkTraktor',
                     'exp2Date': '12/2023 – 05/2024',
@@ -754,7 +808,7 @@
                     'exp3Company': 'Université d’Économie et de Technologie TOBB',
                     'exp3Date': '08/2019 – 09/2023',
                     'exp3Li1': 'Intelligence Artificielle & Machine Learning',
-                    'exp3Li2': 'Systèmes de Bases de Données & Algorithmes',
+                    'exp3Li2': 'Systèmes de Bases de Données & Structures de Données / Algorithmes',
                     'exp4Title': 'Stagiaire en Data Science',
                     'exp4Company': 'Ave Informatics',
                     'exp4Date': '05/2023 – 08/2023',
@@ -773,9 +827,9 @@
                     'projectsIntro': 'Je développe des projets complets alliant Data Engineering, Machine Learning et FinTech — des pipelines ELT sur Snowflake à la modélisation distribuée avec PySpark et à l’analyse financière sur Bloomberg.',
                     'moreProjectsTitle': 'Projets Phares',
                     'projEltTitle': 'Pipeline ELT Suivi de Prêts',
-                    'projEltDesc': 'Architecture médaillon (Bronze/Silver/Gold) sur <span class="highlight-keyword">Snowflake</span> : ingestion via <span class="highlight-keyword">Talend</span> et transformations modulaires avec <span class="highlight-keyword">dbt</span> en <span class="highlight-keyword">SQL</span>.',
+                    'projEltDesc': 'Architecture médaillon (Bronze/Silver/Gold) sur <span class="highlight-keyword">Snowflake</span> : ingestion de 9 fichiers CSV via <span class="highlight-keyword">Talend</span> et transformations modulaires avec <span class="highlight-keyword">dbt</span> en <span class="highlight-keyword">SQL</span>.',
                     'proj2Title': 'Prédiction de la Valeur Marchande des Footballeurs',
-                    'proj2Desc': 'Pipeline big data distribué (<span class="highlight-keyword">PySpark</span> / <span class="highlight-keyword">MLlib</span>) : nettoyage des valeurs aberrantes et modèle de régression <span class="highlight-keyword">Random Forest</span> ($R^2 = 0,75$).',
+                    'proj2Desc': 'Pipeline big data distribué (<span class="highlight-keyword">PySpark</span> / <span class="highlight-keyword">MLlib</span>) : nettoyage des valeurs aberrantes et modèle de régression <span class="highlight-keyword">Random Forest</span> (R² = 0,75).',
                     'projFinTitle': 'Analyse Financière de l’Action Netflix',
                     'projFinDesc': 'Analyse financière et extra-financière sur <span class="highlight-keyword">Bloomberg Terminal</span> (marges, valorisation, gouvernance, <span class="highlight-keyword">ESG</span>) et formulation de recommandations.',
                     'proj6Title': 'Système de Génération d’Histoires par IA',
@@ -784,6 +838,10 @@
                     'proj5Desc': 'Direction du développement backend (équipe de 3) : schémas relationnels <span class="highlight-keyword">SQL</span> (<span class="highlight-keyword">PostgreSQL</span>) et endpoints REST avec <span class="highlight-keyword">Python</span> et <span class="highlight-keyword">Flask</span>.',
                     'proj4Title': 'Prédiction de Scores IMDB',
                     'proj4Desc': 'Analyse exploratoire et entraînement de modèles de <span class="highlight-keyword">Machine Learning</span> (Régression Linéaire, Random Forest, KNN) avec <span class="highlight-keyword">Python</span> et <span class="highlight-keyword">scikit-learn</span>.',
+                    'proj1Title': 'API de Commande de Restaurant',
+                    'proj1Desc': 'Développement d’une API RESTful avec <span class="highlight-keyword">Java Spring Boot</span> et <span class="highlight-keyword">PostgreSQL</span> : opérations CRUD, gestion DTO et dépôts JPA.',
+                    'proj3Title': 'Intégration Web VR MOVR',
+                    'proj3Desc': 'Contribution en équipe agile (5 personnes) à l’intégration du site web MOVR avec une application VR via <span class="highlight-keyword">C#</span>, <span class="highlight-keyword">Unity</span> et <span class="highlight-keyword">MongoDB</span>.',
                     'skillsTitle': 'Technologies & Compétences',
                     'skillsCat1Title': 'Data Science & IA',
                     'skillsCat1P1': '⚡ Modélisation Machine Learning & Big Data avec Python, Scikit-learn et PySpark',
